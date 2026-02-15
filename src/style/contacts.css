@@ -1,0 +1,7 @@
+#contacts {
+    margin-top: var(--section-space-md);
+}
+
+.contact-card {
+    background-color: cadetblue;
+}

@@ -1,0 +1,25 @@
+#project-details {
+    margin-top: var(--section-space-sm);
+}
+
+.project-details-div {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    background-color: blueviolet;
+}
+
+.details-title {
+    font-size: var(--fs-section-title);
+}
+
+.details-info-div {
+    display: grid;
+    
+    background-color: blue;
+}
+
+.date-status-div {
+    display: flex;
+    justify-content: space-around;
+}
+

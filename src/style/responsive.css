@@ -1,0 +1,111 @@
+
+
+
+/* PC/Tablet (1200px and below) */
+@media (max-width: 1100px) {
+    .container {
+        padding-inline: 5rem;
+    }
+
+    .name-info {
+        font-size: clamp(2rem, 14vw, 6rem);
+        white-space: normal;
+    }
+
+    .title-info {
+        margin-top: 1vw;
+        font-size: clamp(1.5rem, 8vw, 3rem);
+    }
+
+    .bio-info {
+        white-space: normal;
+        font-size: clamp(0.3rem, 4vw, 1rem);
+        margin-top: 0.2rem;
+    }
+
+    .intro-photo {
+        width: 100%;
+    }
+
+    .intro-div {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .intro-info-div {
+        margin: 0;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .project-card {
+        aspect-ratio: 3 / 3;
+    }
+
+    .skills-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+
+    .highlights-grid {
+        grid-template-columns: 1fr 3fr;
+        gap: var(--space-7);
+        margin-top: var(--space-5);
+        padding-left: 0;
+    }
+
+}
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+    .container {
+        padding-inline: clamp(3rem, 5vw, 6rem);
+    }
+
+
+
+    .github-btn {
+        margin-top: 3vh;
+    }
+    
+
+    .project-card {
+        aspect-ratio: 4 / 3;
+    }
+
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+    header {
+        margin-top: 7rem;
+    }
+
+    .container {
+        padding-inline: 1rem;
+    }
+
+    .social-links li a {
+        display: none;
+    }
+
+    .projects-title {
+        font-size: 2rem;
+        white-space: normal;
+    }
+
+}
+
+/* scale up for very large screens (TVs, big monitors) */
+@media (min-width: 1600px) {
+
+}
+@media (min-width: 2200px) {
+    .container { max-width: 1800px; }
+    .name-info { font-size: 8rem; }
+    .title-info { font-size: 6em; }
+
+}

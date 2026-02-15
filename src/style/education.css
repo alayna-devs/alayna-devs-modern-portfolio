@@ -1,0 +1,71 @@
+#education {
+    margin-top: var(--section-space-lg);
+}
+
+.edu-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.edu-title {
+    font-size: var(--fs-section-title);
+}
+
+.edu-grid {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-4);
+    margin-top: var(--space-3);
+    overflow-x: auto;
+    box-sizing: border-box;
+
+    /* For Firefox */
+    scrollbar-width: none;
+    /* For Internet Explorer and Edge (legacy) */
+    -ms-overflow-style: none; 
+}
+
+.edu-grid::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.edu-image {
+    width: var(--space-9);
+}
+
+/* Certs */
+
+.edu-card {
+    display: flex;
+    gap: var(--space-4);
+    width: 380px; /* fixed width */
+    min-height: var(--section-space-sm);
+    background-color: cadetblue;
+    border-radius: var(--radius-md);
+    flex: 0 0 auto;
+    padding: var(--space-4);
+}
+
+
+/* Certs */
+
+.edu-card.course-card {
+    background-color: rgb(35, 59, 59);
+}
+
+/* Academics */
+
+.edu-card.academic-card {
+    background-color: rgb(8, 190, 196);
+}
+
+.edu-status.completed {
+    background: #16a34a;
+}
+
+.edu-status.in-progress {
+    background: #f59e0b;
+}

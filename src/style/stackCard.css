@@ -1,0 +1,44 @@
+.stack-card {
+    width: var(--space-6);
+    height: var(--space-6);
+    background-color: black;
+    border-radius: var(--radius-sm);
+}
+
+.stack-icon {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: var(--icon-fs-5);
+    color: var(--color-primary);
+}
+
+.highlights-section {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.highlights-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-4);
+    width: var(--space-6);
+    height: var(--space-6);
+    background-color: black;
+    border-radius: var(--radius-cr);
+    
+}
+
+.highlights-name {
+    font-size: var(--fs-body);
+}
+
+.highlights-icon {
+    font-size: var(--icon-fs-4);
+    color: var(--color-primary);
+}
