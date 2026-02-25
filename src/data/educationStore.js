@@ -1,42 +1,56 @@
+import { courseraLogo, defaultImg, googleLogo, ibmLogo, studyLogo, harvardLogo, scrumBadge, wguLogo, pluralsightLogo, ctdLogo } from "./images"
+
+import { couseraProfile, CS50, ctdCert, googleITPython, ibmFrontendReact, ibmIntroWeb, pluralsightProfile, scrumAlliance, studyBusiness, studyIT, wguCSDegree } from "./links"
+
 export const certs = [
     {
         id: 1,
-        image: "/cat.gif",
-        title: "IT Python",
-        provider: "Google",
-        date: "01/2026",
+        image: googleLogo,
+        title: "Google IT Automation with Python Professional Certificate",
+        provider: "Coursera",
+        date: "01/2026 - Present",
         status: "In-progress",
-        verifyUrl: "",
+        verifyUrl: googleITPython,
         location: "Online"
     },
     {
         id: 2,
-        image: "/cat.gif",
-        title: "IT Python",
-        provider: "Google",
-        date: "01/2026",
-        status: "In-progress",
-        verifyUrl: "",
+        image: ibmLogo,
+        title: "Introduction to Web Development with HTML5, CSS3, and JavaScript",
+        provider: "edX",
+        date: "02/2026",
+        status: "Completed",
+        verifyUrl: ibmIntroWeb,
         location: "Online"
     },
     {
         id: 3,
-        image: "/cat.gif",
-        title: "IT Python",
-        provider: "Google",
-        date: "01/2026",
-        status: "In-progress",
-        verifyUrl: "",
+        image: ibmLogo,
+        title: "Developing Front End Apps with React",
+        provider: "edX",
+        date: "02/2026",
+        status: "Not Yet",
+        verifyUrl: ibmFrontendReact,
         location: "Online"
     },
     {
         id: 4,
-        image: "/cat.gif",
-        title: "IT Python",
-        provider: "Google",
-        date: "01/2026",
-        status: "In-progress",
-        verifyUrl: "",
+        image: harvardLogo,
+        title: "CS50's Introduction to Computer Science",
+        provider: "edX",
+        date: "03/2026",
+        status: "Not Yet",
+        verifyUrl: CS50,
+        location: "Online"
+    },
+    {
+        id: 5,
+        image: scrumBadge,
+        title: "Scrum Foundations",
+        provider: "Scrum Alliance",
+        date: "02/2023",
+        status: "Completed",
+        verifyUrl: scrumAlliance,
         location: "Online"
     },
 ]
@@ -44,43 +58,62 @@ export const certs = [
 export const courses = [
     {
         id: 1,
-        image: "/cat.gif",
-        title: "Web Basics",
+        image: ctdLogo,
+        title: "Fullstack Development with HTML, CSS, JavaScript, React, and Node.js",
         provider: "Code The Dream",
-        date: "01/2025",
-        status: "Completed", // how to only allow 2 options
-        verifyUrl: "", 
+        date: "02/2025 - 11/2025",
+        status: "Completed",
+        verifyUrl: ctdCert, 
         location: "Online"
     },
     {
         id: 2,
-        image: "/cat.gif",
-        title: "Web Basics",
-        provider: "Code The Dream",
-        date: "01/2025",
-        status: "Completed",
-        verifyUrl: "",
-        location: "Online"
+        image: pluralsightLogo,
+        title: "All Accomplishments in Profile",
+        provider: "Pluralsight",
+        date: "Current",
+        status: "",
+        verifyUrl: pluralsightProfile,
+        location: ""
+    },
+    {
+        id: 3,
+        image: courseraLogo,
+        title: "All Accomplishments in Profile",
+        provider: "Coursera",
+        date: "Current",
+        status: "",
+        verifyUrl: couseraProfile,
+        location: ""
     },
 ]
 
 export const academics = [
     {
         id: 1,
-        image: "/cat.gif",
-        major: "Computer Science",
-        school: "WGU",
+        image: wguLogo,
+        major: "B.S. Computer Science",
+        school: "Western Governor University",
         date: "03/2026 - Present",
         location: "Online",
-        site: "",
+        site: wguCSDegree,
     },
     {
         id: 2,
-        image: "/cat.gif",
-        major: "Computer Science",
-        school: "WGU",
-        date: "03/2026 - Present",
+        image: studyLogo,
+        major: "Computer Science 102: Fundamentals of Information Technology",
+        school: "study.com",
+        date: "05/2023",
         location: "Online",
-        site: "",
+        site: studyIT,
+    },
+    {
+        id: 3,
+        image: studyLogo,
+        major: "Business 104: Information Systems and Computer Applications",
+        school: "study.com",
+        date: "05/2023",
+        location: "Online",
+        site: studyBusiness,
     },
 ]

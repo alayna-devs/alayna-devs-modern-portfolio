@@ -1,4 +1,5 @@
 import { initMenu } from "./components/nav";
+import { initButtons } from "./sections/education";
 import { initProject } from "./sections/projects";
 import { createHomeView } from "./views/homeView";
 import { createProjectDetailView } from "./views/projectDetailView";
@@ -19,6 +20,7 @@ export function router() {
         app.innerHTML = createHomeView();
         initMenu();
         initProject();
+        initButtons()
         return;
     }
 

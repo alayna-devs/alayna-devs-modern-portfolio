@@ -32,16 +32,36 @@
     height: 0;
 }
 
-.edu-image {
-    width: var(--space-9);
+.edu-scroll {
+    position: relative;
 }
 
-/* Certs */
+.grid-btn-left {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 50;
+}
+
+.grid-btn-right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 50;
+}
+
+
+/* Cards */
 
 .edu-card {
+    position: relative;
     display: flex;
-    gap: var(--space-4);
-    width: 380px; /* fixed width */
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 380px;
+    height: 240px;
     min-height: var(--section-space-sm);
     background-color: cadetblue;
     border-radius: var(--radius-md);
@@ -49,23 +69,29 @@
     padding: var(--space-4);
 }
 
+.edu-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: var(--space-5);
+    margin-left: var(--space-2);
+    margin-bottom: var(--space-2);
+}
 
-/* Certs */
 
 .edu-card.course-card {
     background-color: rgb(35, 59, 59);
 }
 
-/* Academics */
 
 .edu-card.academic-card {
     background-color: rgb(8, 190, 196);
 }
 
 .edu-status.completed {
-    background: #16a34a;
+    
 }
 
 .edu-status.in-progress {
-    background: #f59e0b;
+    
 }
