@@ -29,8 +29,9 @@
     width: 100%;
     max-width: var(--card-max-width);
     aspect-ratio: var(--card-ratio);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-sm);
     overflow: hidden;
+    cursor: pointer;
 }
 
 .project-card img {

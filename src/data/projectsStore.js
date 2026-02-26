@@ -1,7 +1,7 @@
 export const projects = [
     {
         id: "portfolio-v1",
-        cover: "/cat.gif",
+        cover: "/src/assets/images/temp-project-image.jpg",
         title: "Portfolio",
         date: "02-02-2025",
         description: "My personal developer portfolio",
@@ -11,12 +11,12 @@ export const projects = [
         status: "In-progress",
         live: "/",
         github: "https://github.com/ROM-01",
-        media: ["/public/cat.gif"]
+        media: ["/src/assets/images/temp-project-image.jpg"]
     },
 
     {
         id: "portfolio-v2",
-        cover: "/cat.gif",
+        cover: "/src/assets/images/temp-project-image.jpg",
         title: "Portfolio",
         date: "02-02-2025",
         description: "My personal developer portfolio",
@@ -30,7 +30,7 @@ export const projects = [
     },
     {
         id: "portfolio-v3",
-        cover: "/cat.gif",
+        cover: "/src/assets/images/temp-project-image.jpg",
         title: "Portfolio",
         date: "02-02-2025",
         description: "My personal developer portfolio",
@@ -44,7 +44,7 @@ export const projects = [
     },
     {
         id: "portfolio-v4",
-        cover: "/cat.gif",
+        cover: "/src/assets/images/temp-project-image.jpg",
         title: "Portfolio",
         date: "02-02-2025",
         description: "My personal developer portfolio",
@@ -58,7 +58,7 @@ export const projects = [
     },
     {
         id: "planet-v1",
-        cover: "/cat.gif",
+        cover: "/src/assets/images/temp-project-image.jpg",
         title: "Planet Information",
         date: "02-02-2025",
         description: "My personal developer portfolio",
@@ -72,7 +72,7 @@ export const projects = [
     },
     {
         id: "horror-v1",
-        cover: "/cat.gif",
+        cover: "/src/assets/images/temp-project-image.jpg",
         title: "Horror Game",
         date: "02-02-2025",
         description: "My personal developer portfolio",
@@ -86,7 +86,7 @@ export const projects = [
     },
     {
         id: "logger-v1",
-        cover: "/cat.gif",
+        cover: "/src/assets/images/temp-project-image.jpg",
         title: "Log Monitor",
         date: "02-02-2025",
         description: "My personal developer portfolio",

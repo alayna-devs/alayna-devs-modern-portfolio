@@ -19,11 +19,6 @@
     margin-top: var(--space-3);
     overflow-x: auto;
     box-sizing: border-box;
-
-    /* For Firefox */
-    scrollbar-width: none;
-    /* For Internet Explorer and Edge (legacy) */
-    -ms-overflow-style: none; 
 }
 
 .edu-grid::-webkit-scrollbar {

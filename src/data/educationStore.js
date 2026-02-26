@@ -29,7 +29,7 @@ export const certs = [
         title: "Developing Front End Apps with React",
         provider: "edX",
         date: "02/2026",
-        status: "Not Yet",
+        status: "Upcoming",
         verifyUrl: ibmFrontendReact,
         location: "Online"
     },
@@ -39,7 +39,7 @@ export const certs = [
         title: "CS50's Introduction to Computer Science",
         provider: "edX",
         date: "03/2026",
-        status: "Not Yet",
+        status: "Upcoming",
         verifyUrl: CS50,
         location: "Online"
     },
@@ -69,7 +69,7 @@ export const courses = [
     {
         id: 2,
         image: pluralsightLogo,
-        title: "All Accomplishments in Profile",
+        title: "Public Achievement Record",
         provider: "Pluralsight",
         date: "Current",
         status: "",
@@ -79,7 +79,7 @@ export const courses = [
     {
         id: 3,
         image: courseraLogo,
-        title: "All Accomplishments in Profile",
+        title: "Public Achievement Record",
         provider: "Coursera",
         date: "Current",
         status: "",

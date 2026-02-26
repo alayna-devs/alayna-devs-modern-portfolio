@@ -1,7 +1,46 @@
 #contacts {
-    margin-top: var(--section-space-md);
+    margin-top: var(--section-space-lg2);
+}
+
+.contacts-content {
+    perspective: 600px;
 }
 
 .contact-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-5);
+    width: 770px;
     background-color: cadetblue;
+    box-shadow: 0px 30px 40px rgba(0,0,0,0.4);
+    margin: auto;
+    padding: var(--space-5);
+    will-change: transform, box-shadow;
+    transform-origin: bottom center;
+    transition: transform 0.15s ease-out;
+    transform-style: preserve-3d;
+}
+
+
+
+.contact-card > div:first-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-1);
+}
+
+.contact-card > div:nth-child(2) {
+    text-align: center;
+}
+
+.contact-card > div:nth-child(2) p {
+    font-size: var(--fs-body);
+}
+
+.profile-image {
+    width: var(--space-5);
+    border-radius: var(--radius-cr);
 }

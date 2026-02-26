@@ -38,5 +38,6 @@ header {
 .intro-photo {
     width: clamp(30rem, 42vw, 46rem);
     max-width: 100%;
+    border-radius: var(--radius-lg);
     flex-shrink: 0;
 }

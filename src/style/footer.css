@@ -2,7 +2,64 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 10vw;
     background-color: black;
-    margin-top: var(--section-space-sm);
+    margin-top: var(--section-space-lg2);
+    padding: var(--space-6);
+}
+
+.footer-grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    margin: 0 auto;
+}
+
+.footer-grid-container h3 {
+    list-style: none;
+    font-size: var(--fs-title-sm);
+}
+
+.footer-grid-container ul {
+    list-style: none;
+    font-size: var(--fs-body);
+    padding: 0;
+    margin: 0;
+}
+
+
+.footer-grid-container > div:nth-child(1) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--space-4);
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    padding: var(--space-7);
+}
+
+.footer-contacts-icons {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 50%;
+    justify-items: start;
+}
+
+.footer-grid-container > div:nth-child(2) h1{
+    font-size: var(--space-7);
+}
+
+.footer-grid-container > div:nth-child(3) {
+    display: flex;
+    justify-content: space-between;
 }

@@ -10,10 +10,10 @@ export function createSideMenu() {
 
             <h5>Explore More!</h5>
             <u>
-                <li><a href="/">Home Page</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="">About Me</a></li>
                 <li><a href="/projects">All Projects</a></li>
-                <li><a href="">Referrals</a></li>
+                <li><a href="">Testimonials</a></li>
             </u>
 
             <h5>Socials & Resume</h5>

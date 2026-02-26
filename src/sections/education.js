@@ -9,7 +9,7 @@ export function createEducation() {
                     <h1 class="edu-title">Education</h1>
                     
                     <div>
-                        <h3>Certifications</h3>
+                        <h3>Notable Certifications</h3>
                         <div class="edu-scroll">
                             <button class="grid-btn-left">←</button>
 
@@ -37,7 +37,7 @@ export function createEducation() {
 
 
                     <div>
-                        <h3>Academics</h3>
+                        <h3>Academics Overview</h3>
                         <div class="edu-scroll">
                             <button class="grid-btn-left">←</button>
 

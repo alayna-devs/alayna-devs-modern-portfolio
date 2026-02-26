@@ -1,4 +1,5 @@
 import { initMenu } from "./components/nav";
+import { initRotateCard } from "./sections/contacts";
 import { initButtons } from "./sections/education";
 import { initProject } from "./sections/projects";
 import { createHomeView } from "./views/homeView";
@@ -21,6 +22,7 @@ export function router() {
         initMenu();
         initProject();
         initButtons()
+        initRotateCard()
         return;
     }
 

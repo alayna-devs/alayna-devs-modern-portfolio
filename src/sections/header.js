@@ -16,7 +16,7 @@ export function createHeader() {
                 </div>
                 
                 <div class="intro-photo-div">
-                    <img class="intro-photo" src="/cat.gif"/>
+                    <img class="intro-photo" src="/src/assets/images/𝖰𝗂𝖺𝗈 𝖫𝗂𝗇𝗀.jpeg"/>
                 </div>
 
                 </div>

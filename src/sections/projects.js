@@ -14,7 +14,7 @@ export function createProjects() {
                 
                 <h1 class="projects-title">Featured Latest Projects</h1>
 
-                <div class="projects-body">My Work Experience</div>
+                <div class="projects-body">My Projects Experience</div>
 
                 <div class="projects-grid-div">
                     <div class="projects-grid" id="projectsGrid">
