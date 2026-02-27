@@ -3,16 +3,52 @@
     right: 0;
     top: 0;
     display: none;
-    width: 40rem;
-    height: 100%;
-    background-color: black;
-    padding: var(--space-5);
-
+    width: min(100vw, 35rem);
+    height: 100dvh;
+    background: linear-gradient(180deg, #121318 0%, #1e222c 100%);
+    border-left: 1px solid var(--color-border);
+    padding: var(--space-4);
     transform: translateX(100%);
-    transition: transform 0.3s ease;
+    transition: transform 0.25s ease;
+    overflow-y: auto;
+    z-index: 1100;
 }
 
 .side-menu.active {
     display: block;
     transform: translateX(0);
+}
+
+.menu-close-btn {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: var(--radius-cr);
+    border: 1px solid var(--color-border);
+    background: transparent;
+    color: var(--color-text);
+}
+
+.side-menu-group {
+    margin-top: var(--space-4);
+}
+
+.side-menu-group h5 {
+    margin-bottom: var(--space-2);
+    font-size: var(--fs-title-sm);
+}
+
+.side-menu-links {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.8rem;
+}
+
+.side-menu-links a {
+    color: var(--color-text);
+    opacity: 0.92;
 }

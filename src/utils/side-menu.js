@@ -1,25 +1,32 @@
-import { createIcon } from "../components/fa_icons";
-
+import { createIcon } from "../components/fa_icons"
+import { GITHUB, LINKEDIN, RESUME } from "../data/links"
 
 export function createSideMenu() {
     return `
-        <div class="side-menu">
-            <div class="menu-close-btn">
+        <aside class="side-menu" aria-hidden="true">
+            <button class="menu-close-btn" type="button" aria-label="Close menu">
                 ${createIcon("xmark", "solid")}
+            </button>
+
+            <div class="side-menu-group">
+                <h5>Explore More</h5>
+                <ul class="side-menu-links">
+                    <li><a href="/" data-link>Home</a></li>
+                    <li><a href="/about-me" data-link>About Me</a></li>
+                    <li><a href="/projects" data-link>All Projects</a></li>
+                    <li><a href="/testimonials" data-link>Testimonials</a></li>
+                    <li><a href="/blogs-articles" data-link>Blogs and Articles</a></li>
+                </ul>
             </div>
 
-            <h5>Explore More!</h5>
-            <u>
-                <li><a href="/">Home</a></li>
-                <li><a href="">About Me</a></li>
-                <li><a href="/projects">All Projects</a></li>
-                <li><a href="">Testimonials</a></li>
-            </u>
-
-            <h5>Socials & Resume</h5>
-            <u>
-                <li><i class="fa-brands fa-linkedin"></i></li>
-            </u>
-        </div>
+            <div class="side-menu-group">
+                <h5>Socials &amp; Resume</h5>
+                <ul class="side-menu-links">
+                    <li><a href="${LINKEDIN}" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="${GITHUB}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    <li><a href="${RESUME}" target="_blank" rel="noopener noreferrer">Resume (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
     `
 }

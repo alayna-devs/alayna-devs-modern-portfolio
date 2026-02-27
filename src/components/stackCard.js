@@ -1,26 +1,27 @@
-export function createStackCard(stacks) {
+export function createStackCard(stack) {
+    if (!stack) return ""
+
     return `
-        <div class="stack-card">
-            <div class="stack-icon">
-                ${stacks.icon}
+        <div class="stack-card" title="${stack.name}">
+            <div class="stack-icon" aria-hidden="true">
+                ${stack.icon}
             </div>
         </div>
     `
 }
 
-export function createHighlightCard(highlights) {
+export function createHighlightCard(highlight) {
+    if (!highlight) return ""
+
     return `
         <div class="highlights-section">
-            <div class="highlights-card">
+            <div class="highlights-card" aria-hidden="true">
                 <div class="highlights-icon">
-                ${highlights.icon}
+                    ${highlight.icon}
                 </div>
             </div>
 
-            <div class="highlights-name">
-                ${highlights.name}
-            </div>
-
+            <p class="highlights-name">${highlight.name}</p>
         </div>
     `
 }

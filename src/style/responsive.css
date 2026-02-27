@@ -1,10 +1,7 @@
-
-
-
-/* PC/Tablet (1200px and below) */
+/* PC/Tablet (1100px and below) */
 @media (max-width: 1100px) {
     .container {
-        padding-inline: 5rem;
+        padding-inline: clamp(2rem, 10vw, 8rem);
     }
 
     .name-info {
@@ -17,9 +14,21 @@
         font-size: clamp(1.5rem, 8vw, 3rem);
     }
 
+    .projects-title,
+    .skills-title,
+    .edu-title {
+        font-size: clamp(2.3rem, 7.6vw, 3.8rem);
+    }
+
+    .projects-body,
+    .skills-body,
+    .current-title {
+        font-size: clamp(1.1rem, 3vw, 1.65rem);
+    }
+
     .bio-info {
         white-space: normal;
-        font-size: clamp(0.3rem, 4vw, 1rem);
+        font-size: clamp(1rem, 3vw, 1.2rem);
         margin-top: 0.2rem;
     }
 
@@ -34,6 +43,13 @@
 
     .intro-info-div {
         margin: 0;
+        width: 100%;
+        max-width: 56rem;
+    }
+
+    .intro-photo-div {
+        display: flex;
+        justify-content: center;
     }
 
     .projects-grid {
@@ -45,41 +61,235 @@
         aspect-ratio: 3 / 3;
     }
 
+    #education .edu-content {
+        gap: var(--space-5);
+    }
+
+    #education .edu-grid {
+        gap: var(--space-3);
+    }
+
+    #education .edu-card {
+        width: min(70vw, 360px);
+        min-height: 220px;
+    }
+
     .skills-content {
         grid-template-columns: 1fr;
         gap: var(--space-4);
     }
 
-    .highlights-grid {
-        grid-template-columns: 1fr 3fr;
-        gap: var(--space-7);
-        margin-top: var(--space-5);
+    #skills .skills-body,
+    #skills .current-title {
+        font-size: clamp(1rem, 2.2vw, 1.25rem);
+    }
+
+    #skills .stacks-grid,
+    #skills .current-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-4);
+    }
+
+    #skills .highlights-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+        margin-top: var(--space-4);
         padding-left: 0;
     }
 
+    #skills .stack-card,
+    #skills .highlights-card {
+        width: clamp(3rem, 5vw, 3.5rem);
+        height: clamp(3rem, 5vw, 3.5rem);
+    }
+
+    #skills .stack-icon {
+        font-size: clamp(1.5rem, 2.3vw, 2rem);
+    }
+
+    #skills .highlights-icon {
+        font-size: clamp(1.25rem, 2vw, 1.7rem);
+    }
+
+    #skills .highlights-name {
+        font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    }
+
+    .contact-card {
+        width: 100%;
+        max-width: 770px;
+    }
+
+    .side-menu {
+        width: min(92vw, 30rem);
+    }
+
+    .footer-grid-container > div:nth-child(1) {
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+
+    .footer-brand,
+    .footer-grid {
+        width: 100%;
+    }
+
+    .footer-brand {
+        padding: 0;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-3);
+    }
+
+    .footer-contacts-icons {
+        gap: var(--space-2);
+    }
 }
 
 /* Tablet (768px and below) */
 @media (max-width: 768px) {
-    .container {
-        padding-inline: clamp(3rem, 5vw, 6rem);
+    footer {
+        padding-block: var(--space-5);
     }
 
+    .container {
+        padding-inline: clamp(1.5rem, 6vw, 3rem);
+    }
 
+    .social-links li:not(:last-child) {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .logo a {
+        font-size: clamp(1.3rem, 4.8vw, 1.65rem);
+        letter-spacing: 0.01em;
+    }
 
     .github-btn {
         margin-top: 3vh;
     }
-    
+
+    .intro-info-div {
+        text-align: center;
+        align-items: center;
+    }
+
+    .intro-photo {
+        width: min(100%, 34rem);
+    }
+
+    .projects-title,
+    .skills-title,
+    .edu-title {
+        font-size: clamp(1.9rem, 8vw, 2.8rem);
+    }
+
+    .projects-body,
+    .skills-body,
+    .current-title {
+        font-size: clamp(1rem, 3.5vw, 1.3rem);
+    }
 
     .project-card {
         aspect-ratio: 4 / 3;
     }
 
+    .stacks-grid,
+    .current-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-3);
+    }
+
+    #skills .skills-body,
+    #skills .current-title {
+        font-size: clamp(0.95rem, 3vw, 1.08rem);
+    }
+
+    #skills .highlights-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+    }
+
+    #skills .stack-card,
+    #skills .highlights-card {
+        width: clamp(2.7rem, 8vw, 3.2rem);
+        height: clamp(2.7rem, 8vw, 3.2rem);
+    }
+
+    #skills .stack-icon {
+        font-size: clamp(1.25rem, 4.2vw, 1.65rem);
+    }
+
+    #skills .highlights-icon {
+        font-size: clamp(1.05rem, 3.8vw, 1.4rem);
+    }
+
+    #skills .highlights-name {
+        font-size: clamp(0.88rem, 2.7vw, 0.98rem);
+    }
+
+    .edu-card {
+        width: min(78vw, 380px);
+        height: auto;
+        min-height: 220px;
+    }
+
+    #education .edu-content {
+        gap: var(--space-4);
+    }
+
+    #education .edu-group h3 {
+        font-size: clamp(1.1rem, 4vw, 1.35rem);
+    }
+
+    #education .edu-grid {
+        gap: var(--space-2);
+        padding-inline: var(--space-2);
+    }
+
+    #education .edu-card {
+        width: min(82vw, 330px);
+        min-height: 200px;
+        padding: var(--space-3);
+    }
+
+    #education .grid-btn-left,
+    #education .grid-btn-right {
+        width: 2rem;
+        height: 2rem;
+        padding: 0;
+    }
+
+    .contact-card {
+        padding: var(--space-3);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid-container > div:nth-child(3) {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+    }
 }
 
 /* Mobile (480px and below) */
 @media (max-width: 480px) {
+    footer {
+        padding-block: var(--space-4);
+    }
+
     header {
         margin-top: 7rem;
     }
@@ -88,24 +298,114 @@
         padding-inline: 1rem;
     }
 
-    .social-links li a {
-        display: none;
+    .logo a {
+        font-size: clamp(1.1rem, 6.2vw, 1.35rem);
+        letter-spacing: 0;
     }
 
     .projects-title {
-        font-size: 2rem;
+        font-size: clamp(1.6rem, 8vw, 2.15rem);
         white-space: normal;
     }
 
+    .skills-title,
+    .edu-title {
+        font-size: clamp(1.6rem, 8vw, 2.15rem);
+    }
+
+    .name-info {
+        font-size: clamp(2.2rem, 12vw, 3rem);
+    }
+
+    .bio-info {
+        font-size: 1rem;
+    }
+
+    .projects-body,
+    .skills-body,
+    .current-title {
+        font-size: 1rem;
+    }
+
+    .stacks-grid,
+    .current-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #skills .skills-body,
+    #skills .current-title {
+        font-size: 0.95rem;
+    }
+
+    #skills .stack-card,
+    #skills .highlights-card {
+        width: clamp(2.5rem, 14vw, 3rem);
+        height: clamp(2.5rem, 14vw, 3rem);
+    }
+
+    #skills .stack-icon {
+        font-size: clamp(1.05rem, 6.5vw, 1.35rem);
+    }
+
+    #skills .highlights-icon {
+        font-size: clamp(0.95rem, 6vw, 1.2rem);
+    }
+
+    #skills .highlights-name {
+        font-size: 0.9rem;
+    }
+
+    .edu-card {
+        width: min(84vw, 320px);
+    }
+
+    #education .edu-grid {
+        gap: var(--space-2);
+        padding-inline: var(--space-1);
+    }
+
+    #education .edu-card {
+        width: min(86vw, 300px);
+        min-height: 190px;
+        padding: var(--space-2);
+    }
+
+    #education .edu-image {
+        width: 2.25rem;
+    }
+
+    #education .grid-btn-left,
+    #education .grid-btn-right {
+        display: none !important;
+    }
+
+    .contact-card {
+        width: 100%;
+    }
+
+    .profile-image {
+        width: clamp(3rem, 20vw, 5rem);
+    }
+
+    .side-menu {
+        width: 100vw;
+    }
+
+    .footer-grid-container {
+        gap: var(--space-4);
+    }
+
+    .footer-contacts-icons {
+        gap: var(--space-1);
+    }
 }
 
 /* scale up for very large screens (TVs, big monitors) */
 @media (min-width: 1600px) {
-
 }
+
 @media (min-width: 2200px) {
     .container { max-width: 1800px; }
     .name-info { font-size: 8rem; }
     .title-info { font-size: 6em; }
-
 }

@@ -19,6 +19,10 @@
     margin-top: var(--space-3);
     overflow-x: auto;
     box-sizing: border-box;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: var(--space-2);
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
 }
 
 .edu-grid::-webkit-scrollbar {
@@ -36,6 +40,7 @@
     top: 50%;
     left: 0;
     z-index: 50;
+    transform: translateY(-50%);
 }
 
 .grid-btn-right {
@@ -43,6 +48,7 @@
     top: 50%;
     right: 0;
     z-index: 50;
+    transform: translateY(-50%);
 }
 
 
@@ -62,6 +68,7 @@
     border-radius: var(--radius-md);
     flex: 0 0 auto;
     padding: var(--space-4);
+    scroll-snap-align: start;
 }
 
 .edu-image {
@@ -69,8 +76,10 @@
     bottom: 0;
     left: 0;
     width: var(--space-5);
+    height: auto;
     margin-left: var(--space-2);
     margin-bottom: var(--space-2);
+    object-fit: contain;
 }
 
 

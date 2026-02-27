@@ -27,7 +27,6 @@
 .project-card {
     position: relative;
     width: 100%;
-    max-width: var(--card-max-width);
     aspect-ratio: var(--card-ratio);
     border-radius: var(--radius-sm);
     overflow: hidden;

@@ -4,12 +4,15 @@ footer {
     width: 100%;
     background-color: black;
     margin-top: var(--section-space-lg2);
-    padding: var(--space-6);
+    padding-block: var(--space-6);
 }
 
 .footer-grid-container {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: var(--container-max);
+    padding-inline: var(--container-padding);
     gap: var(--space-5);
     margin: 0 auto;
 }
@@ -26,11 +29,20 @@ footer {
     margin: 0;
 }
 
+.footer-grid-container li + li {
+    margin-top: var(--space-1);
+}
+
+.footer-grid-container a,
+.footer-grid-container li {
+    overflow-wrap: anywhere;
+}
 
 .footer-grid-container > div:nth-child(1) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: start;
     gap: var(--space-4);
 }
 
@@ -39,27 +51,31 @@ footer {
     flex-direction: column;
     justify-content: center;
     width: 40%;
-    padding: var(--space-7);
+    min-width: 16rem;
+    padding: clamp(var(--space-2), 4vw, var(--space-6));
 }
 
 .footer-contacts-icons {
     display: flex;
     gap: var(--space-4);
+    flex-wrap: wrap;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
     width: 50%;
     justify-items: start;
 }
 
-.footer-grid-container > div:nth-child(2) h1{
-    font-size: var(--space-7);
+.footer-grid > div {
+    min-width: 0;
 }
 
-.footer-grid-container > div:nth-child(3) {
+.footer-bottom {
     display: flex;
     justify-content: space-between;
+    gap: var(--space-2);
+    flex-wrap: wrap;
 }

@@ -1,35 +1,52 @@
 .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: var(--space-5) var(--space-6);
+    inset: 0 0 auto 0;
     z-index: 1000;
+    min-height: var(--nav-height);
+    backdrop-filter: blur(10px);
+    background: linear-gradient(to bottom, rgba(23, 24, 28, 0.92), rgba(23, 24, 28, 0.62));
+    border-bottom: 1px solid var(--color-border);
+}
+
+.navdiv {
+    min-height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
 }
 
 .logo a {
     font-size: var(--fs-logo);
     font-weight: var(--fw-lg);
+    letter-spacing: 0.02em;
 }
-
-.navdiv {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
 
 .social-links {
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: var(--icon-fs-2);
     gap: var(--space-2);
     list-style: none;
+    padding: 0;
+}
+
+.social-links a,
+.menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    color: var(--color-text);
+    font-size: var(--icon-fs-2);
+}
+
+.menu-toggle {
+    border: 1px solid var(--color-border);
+    background: transparent;
 }
 
 .bars-icon {
-    font-size: var(--icon-fs-3);
-    cursor: pointer;
+    font-size: var(--icon-fs-2);
 }

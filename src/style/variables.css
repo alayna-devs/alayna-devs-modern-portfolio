@@ -8,6 +8,7 @@
     --color-text: rgba(255, 255, 255, 0.87);
     --color-primary: #C92351;
     --color-primary-hover: #df577e;
+    --color-border: rgba(255, 255, 255, 0.25);
 
     --color-surface: #1a1a1a;
     --color-card-overlay: rgba(0, 0, 0, 0.5);
@@ -85,5 +86,8 @@
     --icon-fs-5: 3rem;
     --icon-fs-6: 3.5rem;
     --icon-fs-7: 4rem;
+
+    /* NAV */
+    --nav-height: 5.2rem;
 
 }

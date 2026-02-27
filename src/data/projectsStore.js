@@ -1,7 +1,9 @@
+import { projectPlaceholder } from "./images"
+
 export const projects = [
     {
         id: "portfolio-v1",
-        cover: "/src/assets/images/temp-project-image.jpg",
+        cover: projectPlaceholder,
         title: "Portfolio",
         date: "02-02-2025",
         description: "My personal developer portfolio",
@@ -11,12 +13,11 @@ export const projects = [
         status: "In-progress",
         live: "/",
         github: "https://github.com/ROM-01",
-        media: ["/src/assets/images/temp-project-image.jpg"]
+        media: [projectPlaceholder]
     },
-
     {
         id: "portfolio-v2",
-        cover: "/src/assets/images/temp-project-image.jpg",
+        cover: projectPlaceholder,
         title: "Portfolio",
         date: "02-02-2025",
         description: "My personal developer portfolio",
@@ -30,7 +31,7 @@ export const projects = [
     },
     {
         id: "portfolio-v3",
-        cover: "/src/assets/images/temp-project-image.jpg",
+        cover: projectPlaceholder,
         title: "Portfolio",
         date: "02-02-2025",
         description: "My personal developer portfolio",
@@ -44,7 +45,7 @@ export const projects = [
     },
     {
         id: "portfolio-v4",
-        cover: "/src/assets/images/temp-project-image.jpg",
+        cover: projectPlaceholder,
         title: "Portfolio",
         date: "02-02-2025",
         description: "My personal developer portfolio",
@@ -58,7 +59,7 @@ export const projects = [
     },
     {
         id: "planet-v1",
-        cover: "/src/assets/images/temp-project-image.jpg",
+        cover: projectPlaceholder,
         title: "Planet Information",
         date: "02-02-2025",
         description: "My personal developer portfolio",
@@ -72,7 +73,7 @@ export const projects = [
     },
     {
         id: "horror-v1",
-        cover: "/src/assets/images/temp-project-image.jpg",
+        cover: projectPlaceholder,
         title: "Horror Game",
         date: "02-02-2025",
         description: "My personal developer portfolio",
@@ -86,7 +87,7 @@ export const projects = [
     },
     {
         id: "logger-v1",
-        cover: "/src/assets/images/temp-project-image.jpg",
+        cover: projectPlaceholder,
         title: "Log Monitor",
         date: "02-02-2025",
         description: "My personal developer portfolio",
@@ -100,31 +101,32 @@ export const projects = [
     }
 ]
 
-
-// Load projects
-
 const STORAGE_KEY = "projects"
 
 export function loadProjects() {
-    //get stored data
     const data = localStorage.getItem(STORAGE_KEY)
-    // convert the data into JS object
-    return data ? JSON.parse(data) : []
+    if (!data) return []
+
+    try {
+        const parsed = JSON.parse(data)
+        return Array.isArray(parsed) ? parsed : []
+    } catch {
+        return []
+    }
 }
 
-// Save projects
-export function saveProjects(projects) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(projects))
+export function saveProjects(nextProjects) {
+    if (!Array.isArray(nextProjects)) return
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(nextProjects))
 }
 
-// Add/delete helpers
 export function addProject(project) {
-    const projects = loadProjects()
-    projects.push(project)
-    saveProjects(projects)
+    const existingProjects = loadProjects()
+    existingProjects.push(project)
+    saveProjects(existingProjects)
 }
 
 export function deleteProject(id) {
-    const projects = loadProjects().filter(p => p.id !== id)
-    saveProjects(projects)
+    const nextProjects = loadProjects().filter(project => project.id !== id)
+    saveProjects(nextProjects)
 }

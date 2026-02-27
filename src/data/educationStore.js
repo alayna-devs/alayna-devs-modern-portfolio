@@ -1,4 +1,4 @@
-import { courseraLogo, defaultImg, googleLogo, ibmLogo, studyLogo, harvardLogo, scrumBadge, wguLogo, pluralsightLogo, ctdLogo } from "./images"
+import { courseraLogo, googleLogo, ibmLogo, studyLogo, harvardLogo, scrumBadge, wguLogo, pluralsightLogo, ctdLogo } from "./images"
 
 import { couseraProfile, CS50, ctdCert, googleITPython, ibmFrontendReact, ibmIntroWeb, pluralsightProfile, scrumAlliance, studyBusiness, studyIT, wguCSDegree } from "./links"
 

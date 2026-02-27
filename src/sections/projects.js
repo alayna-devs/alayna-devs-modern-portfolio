@@ -1,56 +1,61 @@
-import { createProjectCard } from '../components/projectCard'
-import { projects } from '../data/projectsStore'
+import { createProjectCard } from "../components/projectCard"
+import { projects } from "../data/projectsStore"
 
 export function createProjects() {
-    const featuredProjects = projects.filter(p => p.featured)
-
-    const cardHTML = featuredProjects
-    .map(project => createProjectCard(project))
-    .join("")
+    const featuredProjects = projects.filter(project => project.featured)
+    const featuredCardsHtml = featuredProjects.map(project => createProjectCard(project)).join("")
 
     return `
         <section id="projects">
             <div class="container">
-                
-                <h1 class="projects-title">Featured Latest Projects</h1>
-
-                <div class="projects-body">My Projects Experience</div>
+                <h2 class="projects-title">Featured Projects</h2>
+                <p class="projects-body">Selected work across frontend, systems, and tooling.</p>
 
                 <div class="projects-grid-div">
                     <div class="projects-grid" id="projectsGrid">
-                        ${cardHTML}
+                        ${featuredCardsHtml}
                     </div>
 
-                    <button class="projects-btn">View All Projects</button>
+                    <a class="projects-btn" href="/projects" data-link>View All Projects</a>
                 </div>
             </div>
         </section>
     `
 }
 
-export function initProject() {
+export function initProjectsSection() {
     const section = document.getElementById("projects")
     if (!section) return
 
-    section.addEventListener("click", (e) => {
-        if (e.target.closest(".project-card")) {
-            const card = e.target.closest(".project-card")
-            if (!card) return console.log("project card", card)
+    const openProjectFromCard = (card) => {
+        const projectId = card?.dataset?.id
+        if (!projectId) return
 
-            const id = card.dataset.id
+        history.pushState({}, "", `/project/${encodeURIComponent(projectId)}`)
+        window.dispatchEvent(new PopStateEvent("popstate"))
+    }
 
-            history.pushState({}, "", `/project/${encodeURIComponent(id)}`)
-            window.dispatchEvent(new PopStateEvent("popstate"))
-        }
-        
-        if (e.target.closest(".projects-btn")) {
-            const button = e.target.closest(".projects-btn")
-            if (!button) return console.log("project button", button)
+    const handleClick = (event) => {
+        const card = event.target.closest(".project-card")
+        if (!card || !section.contains(card)) return
+        openProjectFromCard(card)
+    }
 
-            if (button) {
-                history.pushState({}, "", `/projects`)
-                window.dispatchEvent(new PopStateEvent("popstate"))
-            }
-        }
-    })
+    const handleKeydown = (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return
+
+        const card = event.target.closest(".project-card")
+        if (!card || !section.contains(card)) return
+
+        event.preventDefault()
+        openProjectFromCard(card)
+    }
+
+    section.addEventListener("click", handleClick)
+    section.addEventListener("keydown", handleKeydown)
+
+    return () => {
+        section.removeEventListener("click", handleClick)
+        section.removeEventListener("keydown", handleKeydown)
+    }
 }

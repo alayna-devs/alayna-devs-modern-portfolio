@@ -1,43 +1,38 @@
-import {stacks, highlights} from '../data/skillsStore'
-import { createStackCard, createHighlightCard } from '../components/stackCard'
+import { stacks, highlights } from "../data/skillsStore"
+import { createStackCard, createHighlightCard } from "../components/stackCard"
 
 export function createSkills() {
-    const currentOnlyCard = stacks.filter(stack => (stack.current)) //filter object
-    const currentCard = currentOnlyCard.map(stack => (createStackCard(stack))).join("") // convert the object
+    const currentStacks = stacks.filter(stack => stack.current)
+    const baseStacks = stacks.filter(stack => !stack.current)
 
-    const stackOnlyCard = stacks.filter(stack => (!stack.current))
-    const stackCard = stackOnlyCard.map(stack => ( createStackCard(stack)) ).join("")
-
-    const highlightCard = highlights.map(highlight => (createHighlightCard(highlight))).join("")
+    const baseStackCardsHtml = baseStacks.map(stack => createStackCard(stack)).join("")
+    const currentStackCardsHtml = currentStacks.map(stack => createStackCard(stack)).join("")
+    const highlightCardsHtml = highlights.map(highlight => createHighlightCard(highlight)).join("")
 
     return `
         <section id="skills">
             <div class="container">
-                
                 <div class="skills-content">
-                    
                     <div class="stacks-div">
-                        <h1 class="skills-title">Engineering Toolkit</h1>
-                        <p class="skills-body">My Tech Stack</p>
+                        <h2 class="skills-title">Engineering Toolkit</h2>
+                        <p class="skills-body">Core stack and current learning focus.</p>
 
                         <div class="stacks-grid">
-                            ${stackCard}
+                            ${baseStackCardsHtml}
                         </div>
 
                         <div class="current-div">
                             <p class="current-title">Currently Focused On</p>
                             <div class="current-grid">
-                                ${currentCard}
+                                ${currentStackCardsHtml}
                             </div>
                         </div>
                     </div>
 
                     <div class="highlights-grid">
-                        ${highlightCard}
-                    </div>       
+                        ${highlightCardsHtml}
+                    </div>
                 </div>
-
-
             </div>
         </section>
     `

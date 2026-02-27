@@ -1,4 +1,5 @@
 import { GITHUB, LINKEDIN } from "../data/links"
+import { profilePhoto } from "../data/images"
 
 export function createContacts() {
     return `
@@ -6,8 +7,18 @@ export function createContacts() {
             <div class="container">
                 <div class="contacts-content">
                     <div class="contact-card">
-                        <div>
-                            <img class="profile-image" src="/src/assets/images/temp-photo.jpg" />
+                        <div class="contact-profile">
+                            <img
+                                class="profile-image"
+                                src="${profilePhoto}"
+                                alt="Alayna Taylor profile"
+                                loading="lazy"
+                                decoding="async"
+                                fetchpriority="low"
+                                width="512"
+                                height="512"
+                                draggable="false"
+                            />
 
                             <div>
                                 <h3>Alayna Taylor</h3>
@@ -15,21 +26,15 @@ export function createContacts() {
                             </div>
                         </div>
 
-                        <div>
-                            <h1 class="tech-title">Impressed? Let's Connect!</h1>
-                            <p>I build fast, accessible web apps with React, Next.js, and TypeScript. I'm looking for teams that value product quality, performance, and thoughtful UX.</p>
+                        <div class="contact-copy">
+                            <h2 class="tech-title">Impressed? Let&#39;s Connect!</h2>
+                            <p>I build fast, accessible web apps with React, Next.js, and TypeScript. I&#39;m looking for teams that value product quality, performance, and thoughtful UX.</p>
                         </div>
-                        
-                        <div>
-                            <a href="mailto:@alaynaonetay@gmail.com">
-                                <button>Email Me</button>
-                            </a>
-                            <a href="${LINKEDIN}" target="_blank" rel="noopener noreferrer">
-                                <button>LinkedIN</button>
-                            </a>
-                            <a href="${GITHUB}" target="_blank" rel="noopener noreferrer">
-                                <button>Github</button>
-                            </a>
+
+                        <div class="contact-links">
+                            <a class="contact-link-btn" href="mailto:alaynaonetay@gmail.com">Email Me</a>
+                            <a class="contact-link-btn" href="${LINKEDIN}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                            <a class="contact-link-btn" href="${GITHUB}" target="_blank" rel="noopener noreferrer">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -38,46 +43,53 @@ export function createContacts() {
     `
 }
 
-export function initRotateCard() {
+export function initContactCardTilt() {
     const card = document.querySelector(".contact-card")
-    const maxRotation = 15
+    if (!card) return
 
-    card.addEventListener("mousemove", (e) => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (reduceMotion) return
+
+    const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches
+    if (!canHover) return
+
+    const maxRotation = 12
+    const shadowDistance = 24
+
+    const handlePointerMove = (event) => {
         const rect = card.getBoundingClientRect()
-
-        const x = e.clientX - rect.left
-        const y = e.clientY - rect.top
+        const x = event.clientX - rect.left
+        const y = event.clientY - rect.top
 
         const centerX = rect.width / 2
         const centerY = rect.height / 2
 
-        const distanceX = x - centerX
-        const distanceY = y - centerY
-
-        const percentX = distanceX / centerX
-        const percentY = distanceY / centerY
+        const percentX = (x - centerX) / centerX
+        const percentY = (y - centerY) / centerY
 
         const rotateY = -percentX * maxRotation
         const rotateX = percentY * maxRotation
 
-        card.style.transform = `
-            rotateX(${rotateX}deg)
-            rotateY(${rotateY}deg)
-        `
-
         const tiltAmount = Math.max(Math.abs(percentX), Math.abs(percentY))
-        const blur = 40 + tiltAmount * 20
+        const blur = 34 + tiltAmount * 14
 
         const shadowX = -percentX * shadowDistance
         const shadowY = percentY * shadowDistance
 
-        card.style.boxShadow = `
-        ${shadowX}px ${shadowY}px ${blur}px rgba(0,0,0,0.25)
-        `
-    })
+        card.style.transform = `translateZ(0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+        card.style.boxShadow = `${shadowX}px ${shadowY}px ${blur}px rgba(0,0,0,0.24)`
+    }
 
-    card.addEventListener("mouseleave", () => {
-        card.style.transform = "rotateX(0deg) rotateY(0deg)"
-    })
+    const handlePointerLeave = () => {
+        card.style.transform = "translateZ(0) rotateX(0deg) rotateY(0deg)"
+        card.style.boxShadow = "0px 24px 40px rgba(0,0,0,0.28)"
+    }
 
+    card.addEventListener("pointermove", handlePointerMove)
+    card.addEventListener("pointerleave", handlePointerLeave)
+
+    return () => {
+        card.removeEventListener("pointermove", handlePointerMove)
+        card.removeEventListener("pointerleave", handlePointerLeave)
+    }
 }

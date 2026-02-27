@@ -98,7 +98,7 @@ export function initProjectView() {
         renderProjects(filteredProjects, grid, counter)
     }
 
-    section.addEventListener("click", (e) => {
+    const handleClick = (e) => {
         const filterButton = e.target.closest(".filter-btn")
         if (filterButton) {
             activeFilter = filterButton.dataset.filter || "all"
@@ -117,10 +117,34 @@ export function initProjectView() {
 
         history.pushState({}, "", `/project/${encodeURIComponent(id)}`)
         window.dispatchEvent(new PopStateEvent("popstate"))
-    })
+    }
 
-    search.addEventListener("input", () => {
+    const handleKeydown = (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return
+
+        const card = e.target.closest(".project-card")
+        if (!card) return
+
+        const id = card.dataset.id
+        if (!id) return
+
+        e.preventDefault()
+        history.pushState({}, "", `/project/${encodeURIComponent(id)}`)
+        window.dispatchEvent(new PopStateEvent("popstate"))
+    }
+
+    const handleInput = () => {
         searchText = search.value
         applyFilters()
-    })
+    }
+
+    section.addEventListener("click", handleClick)
+    section.addEventListener("keydown", handleKeydown)
+    search.addEventListener("input", handleInput)
+
+    return () => {
+        section.removeEventListener("click", handleClick)
+        section.removeEventListener("keydown", handleKeydown)
+        search.removeEventListener("input", handleInput)
+    }
 }

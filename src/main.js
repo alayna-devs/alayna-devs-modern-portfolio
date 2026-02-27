@@ -13,6 +13,17 @@ function navigate(event) {
     event.preventDefault();
     history.pushState({}, "", href);
     router();
+
+    const hash = link.hash || (href.includes("#") ? href.slice(href.indexOf("#")) : "");
+    if (!hash) return;
+
+    const id = hash.slice(1);
+    requestAnimationFrame(() => {
+        const target = document.getElementById(id);
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    });
 }
 
 if (document.readyState === "loading") {
@@ -23,6 +34,5 @@ if (document.readyState === "loading") {
 
 window.addEventListener("popstate", router);
 document.addEventListener("click", navigate);
-
 
 
