@@ -4,7 +4,7 @@
         COLORS
     ========================== */
 
-    --color-bg: #242424;
+    --color-bg: #0c0c0c;
     --color-text: rgba(255, 255, 255, 0.87);
     --color-primary: #C92351;
     --color-primary-hover: #df577e;
@@ -12,13 +12,31 @@
 
     --color-surface: #1a1a1a;
     --color-card-overlay: rgba(0, 0, 0, 0.5);
+    --color-black: #000;
+
+    /* SHARED SURFACES */
+    --surface-nav-bg: linear-gradient(to bottom, rgba(9, 9, 11, 0.92), rgba(13, 14, 16, 0.62));
+    --surface-nav-bg-blur: linear-gradient(to bottom, rgba(22, 24, 25, 0.92), rgba(9, 10, 11, 0.62));
+    --surface-panel-bg: linear-gradient(to bottom, rgba(22, 22, 28, 0.985), rgba(17, 18, 22, 0.955));
+    --surface-panel-bg-blur: linear-gradient(to bottom, rgba(16, 17, 19, 0.92), rgba(3, 4, 4, 0.62));
+    --surface-panel-border: 1px solid var(--color-border);
+
+    /* SHARED ICON BUTTON EFFECT */
+    --icon-btn-size: 2.75rem;
+    --icon-btn-border: 1px solid rgba(201, 35, 81, 0.45);
+    --icon-btn-bg: var(--color-black);
+    --icon-btn-color: var(--color-primary);
+    --icon-btn-shadow: 0 10px 22px rgba(201, 35, 81, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    --icon-btn-hover-color: #ffd4e0;
+    --icon-btn-hover-shadow: 0 14px 30px rgba(201, 35, 81, 0.34), 0 0 0 3px rgba(201, 35, 81, 0.2);
+    --icon-btn-active-shadow: 0 8px 14px rgba(201, 35, 81, 0.22);
 
     /* =========================
         CONTAINER SYSTEM
     ========================== */
 
     --container-max: 1400px;
-    --container-padding: clamp(1rem, 4vw, 3rem);
+    --container-padding: clamp(0rem, calc(4vw - 1rem), 2rem);
 
 
     /* =========================
@@ -49,7 +67,7 @@
 
     --fs-logo: 2rem;
     --fs-hero: clamp(5rem, 6vw, 7rem);
-    --fs-title: clamp(3rem, 3.5vw, 6rem);
+    --fs-title: clamp(3.35rem, 4.25vw, 6rem);
     --fs-title-sm: clamp(1.5rem, 1.5vw, 3rem);
     --fs-body: clamp(1rem, 1.2vw, 2rem);
     --fs-section-title: clamp(4rem, 4vw, 5rem);

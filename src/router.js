@@ -1,7 +1,9 @@
 import { initMenu } from "./components/nav"
+import { initScrollToggleButton } from "./components/scrollToggleButton"
 import { initContactCardTilt } from "./sections/contacts"
 import { initEducationSection } from "./sections/education"
 import { initProjectsSection } from "./sections/projects"
+import { initSectionScrollReveal } from "./utils/scrollReveal"
 import { create404View } from "./views/404View"
 import { createAboutMeView } from "./views/aboutMeView"
 import { createBlogsArticlesView } from "./views/blogsArticleView"
@@ -56,10 +58,12 @@ export function router() {
 
     if (path === "/" || path === "/index.html") {
         app.innerHTML = createHomeView()
+        registerDisposer(initSectionScrollReveal())
         registerDisposer(initMenu())
         registerDisposer(initProjectsSection())
         registerDisposer(initEducationSection())
         registerDisposer(initContactCardTilt())
+        registerDisposer(initScrollToggleButton())
         scrollToHashTarget()
         return
     }
@@ -67,6 +71,7 @@ export function router() {
     if (path.startsWith("/project/")) {
         const id = decodeURIComponent(path.split("/project/")[1] || "")
         app.innerHTML = createProjectDetailView(id)
+        registerDisposer(initSectionScrollReveal())
         registerDisposer(initMenu())
         registerDisposer(initProjectDetailView())
         return
@@ -74,6 +79,7 @@ export function router() {
 
     if (path.startsWith("/projects")) {
         app.innerHTML = createProjectView()
+        registerDisposer(initSectionScrollReveal())
         registerDisposer(initMenu())
         registerDisposer(initProjectView())
         return
@@ -81,18 +87,22 @@ export function router() {
 
     if (path.startsWith("/about-me")) {
         app.innerHTML = createAboutMeView()
+        registerDisposer(initSectionScrollReveal())
         return
     }
 
     if (path.startsWith("/testimonials")) {
         app.innerHTML = createTestimonialsView()
+        registerDisposer(initSectionScrollReveal())
         return
     }
 
     if (path.startsWith("/blogs-articles")) {
         app.innerHTML = createBlogsArticlesView()
+        registerDisposer(initSectionScrollReveal())
         return
     }
 
     app.innerHTML = create404View()
+    registerDisposer(initSectionScrollReveal())
 }

@@ -5,6 +5,7 @@ import { createSkills } from '../sections/skills'
 import { createEducation } from '../sections/education'
 import { createFooter } from '../components/footer'
 import { createContacts } from '../sections/contacts'
+import { createScrollToggleButton } from '../components/scrollToggleButton'
 
 import '../import_css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
@@ -18,5 +19,6 @@ export function createHomeView() {
         ${createEducation()}
         ${createContacts()}
         ${createFooter()}
+        ${createScrollToggleButton()}
     `
 }

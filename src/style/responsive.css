@@ -1,17 +1,35 @@
+/* Desktop/Laptop (1360px and below) */
+@media (max-width: 1360px) {
+    .footer-top {
+        gap: var(--space-2);
+    }
+
+    .footer-brand {
+        width: 43%;
+    }
+
+    .footer-grid {
+        width: 55%;
+    }
+}
+
 /* PC/Tablet (1100px and below) */
 @media (max-width: 1100px) {
     .container {
         padding-inline: clamp(2rem, 10vw, 8rem);
     }
 
-    .name-info {
+    .social-links li:not(:last-child) {
+        display: none;
+    }
+
+    .hero-header .name-info {
         font-size: clamp(2rem, 14vw, 6rem);
         white-space: normal;
     }
 
-    .title-info {
+    .hero-header .title-info {
         margin-top: 1vw;
-        font-size: clamp(1.5rem, 8vw, 3rem);
     }
 
     .projects-title,
@@ -26,30 +44,49 @@
         font-size: clamp(1.1rem, 3vw, 1.65rem);
     }
 
-    .bio-info {
+    .hero-header .bio-info {
         white-space: normal;
         font-size: clamp(1rem, 3vw, 1.2rem);
         margin-top: 0.2rem;
     }
 
-    .intro-photo {
+    .hero-header .intro-photo {
         width: 100%;
     }
 
-    .intro-div {
+    .hero-header .intro-div {
+        display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 1.5rem;
     }
 
-    .intro-info-div {
+    .hero-header .intro-info-div {
+        align-items: center;
+        text-align: center;
         margin: 0;
         width: 100%;
         max-width: 56rem;
     }
 
-    .intro-photo-div {
-        display: flex;
+    .hero-header .location-line {
+        width: 100%;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .hero-header .name-row {
         justify-content: center;
+    }
+
+    .hero-header .github-btn {
+        margin-top: var(--space-3);
+        align-self: center;
+    }
+
+    .hero-header .intro-photo-div {
+        justify-content: center;
+        width: 100%;
     }
 
     .projects-grid {
@@ -59,6 +96,16 @@
 
     .project-card {
         aspect-ratio: 3 / 3;
+    }
+
+    #project-details .project-details-div {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+
+    #project-details .details-media {
+        min-height: 300px;
+        max-height: 460px;
     }
 
     #education .edu-content {
@@ -86,29 +133,31 @@
 
     #skills .stacks-grid,
     #skills .current-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--space-4);
+        grid-template-columns: repeat(5, 1fr);
+        gap: var(--space-3);
+        padding-top: var(--space-5);
+        padding-bottom: var(--space-5);
     }
 
     #skills .highlights-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-3);
-        margin-top: var(--space-4);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-2);
+        margin-top: var(--space-3);
         padding-left: 0;
     }
 
     #skills .stack-card,
     #skills .highlights-card {
-        width: clamp(3rem, 5vw, 3.5rem);
-        height: clamp(3rem, 5vw, 3.5rem);
+        width: clamp(3.8rem, 5.9vw, 4.4rem);
+        height: clamp(3.8rem, 5.9vw, 4.4rem);
     }
 
     #skills .stack-icon {
-        font-size: clamp(1.5rem, 2.3vw, 2rem);
+        font-size: clamp(1.95rem, 2.9vw, 2.45rem);
     }
 
     #skills .highlights-icon {
-        font-size: clamp(1.25rem, 2vw, 1.7rem);
+        font-size: clamp(1.7rem, 2.6vw, 2.2rem);
     }
 
     #skills .highlights-name {
@@ -121,10 +170,10 @@
     }
 
     .side-menu {
-        width: min(92vw, 30rem);
+        width: min(92vw, 33rem);
     }
 
-    .footer-grid-container > div:nth-child(1) {
+    .footer-top {
         flex-direction: column;
         gap: var(--space-4);
     }
@@ -136,15 +185,23 @@
 
     .footer-brand {
         padding: 0;
+        align-items: center;
+        text-align: center;
     }
 
     .footer-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: var(--space-3);
     }
 
     .footer-contacts-icons {
         gap: var(--space-2);
+        justify-content: center;
+    }
+
+    .footer-bottom h2 {
+        max-width: 100%;
+        white-space: normal;
     }
 }
 
@@ -158,10 +215,6 @@
         padding-inline: clamp(1.5rem, 6vw, 3rem);
     }
 
-    .social-links li:not(:last-child) {
-        display: none;
-    }
-
     .menu-toggle {
         display: inline-flex;
     }
@@ -171,17 +224,22 @@
         letter-spacing: 0.01em;
     }
 
-    .github-btn {
+    .hero-header .github-btn {
         margin-top: 3vh;
     }
 
-    .intro-info-div {
-        text-align: center;
-        align-items: center;
+    .hero-header .intro-photo {
+        width: min(100%, 34rem);
     }
 
-    .intro-photo {
-        width: min(100%, 34rem);
+    .contact-profile {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+
+    .contact-link-btn {
+        width: min(100%, 15rem);
     }
 
     .projects-title,
@@ -196,14 +254,46 @@
         font-size: clamp(1rem, 3.5vw, 1.3rem);
     }
 
+    .all-projects-title {
+        font-size: clamp(1.9rem, 8vw, 2.8rem);
+    }
+
+    #all-projects .projects-search {
+        width: 100%;
+    }
+
+    #all-projects .all-projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
     .project-card {
         aspect-ratio: 4 / 3;
     }
 
-    .stacks-grid,
-    .current-grid {
+    #project-details .details-title {
+        font-size: clamp(1.9rem, 8vw, 2.8rem);
+    }
+
+    #project-details .details-media {
+        min-height: 260px;
+        max-height: 380px;
+    }
+
+    .card-title {
+        font-size: clamp(1.05rem, 3.9vw, 1.4rem);
+    }
+
+    .card-label,
+    .card-tech-item {
+        font-size: 0.72rem;
+    }
+
+    #skills .stacks-grid,
+    #skills .current-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: var(--space-3);
+        padding-top: var(--space-5);
+        padding-bottom: var(--space-5);
     }
 
     #skills .skills-body,
@@ -212,22 +302,23 @@
     }
 
     #skills .highlights-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: var(--space-2);
+        margin-top: var(--space-3);
     }
 
     #skills .stack-card,
     #skills .highlights-card {
-        width: clamp(2.7rem, 8vw, 3.2rem);
-        height: clamp(2.7rem, 8vw, 3.2rem);
+        width: clamp(3.2rem, 9vw, 3.7rem);
+        height: clamp(3.2rem, 9vw, 3.7rem);
     }
 
     #skills .stack-icon {
-        font-size: clamp(1.25rem, 4.2vw, 1.65rem);
+        font-size: clamp(1.55rem, 4.8vw, 1.95rem);
     }
 
     #skills .highlights-icon {
-        font-size: clamp(1.05rem, 3.8vw, 1.4rem);
+        font-size: clamp(1.35rem, 4.3vw, 1.7rem);
     }
 
     #skills .highlights-name {
@@ -259,6 +350,15 @@
         padding: var(--space-3);
     }
 
+    .edu-card {
+        gap: 0.8rem;
+    }
+
+    .edu-view-link {
+        min-height: 2rem;
+        padding: 0.35rem 0.72rem;
+    }
+
     #education .grid-btn-left,
     #education .grid-btn-right {
         width: 2rem;
@@ -271,26 +371,27 @@
     }
 
     .footer-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-items: center;
+        text-align: center;
     }
 
-    .footer-grid-container > div:nth-child(3) {
-        flex-direction: column;
-        gap: var(--space-2);
+    .footer-bottom h2 {
+        font-size: clamp(2.1rem, 12vw, 4rem);
     }
 
     .footer-bottom {
         align-items: flex-start;
     }
+
+    .footer-top {
+        align-items: center;
+    }
 }
 
 /* Mobile (480px and below) */
 @media (max-width: 480px) {
-    footer {
-        padding-block: var(--space-4);
-    }
-
-    header {
+    .hero-header {
         margin-top: 7rem;
     }
 
@@ -308,16 +409,52 @@
         white-space: normal;
     }
 
+    #project-details .details-title {
+        font-size: clamp(1.6rem, 8vw, 2.15rem);
+        white-space: normal;
+    }
+
+    #project-details .project-details-div {
+        padding: calc(var(--space-2) + 3rem);
+        gap: var(--space-2);
+    }
+
+    #project-details .details-chip,
+    #project-details .details-tech-item {
+        font-size: 0.68rem;
+    }
+
+    #project-details .details-media {
+        min-height: 210px;
+        max-height: 300px;
+    }
+
+    .all-projects-title {
+        font-size: clamp(1.6rem, 8vw, 2.15rem);
+        white-space: normal;
+    }
+
     .skills-title,
     .edu-title {
         font-size: clamp(1.6rem, 8vw, 2.15rem);
     }
 
-    .name-info {
+    .hero-header .name-info {
         font-size: clamp(2.2rem, 12vw, 3rem);
     }
 
-    .bio-info {
+    .hero-header .location-line {
+        font-size: 0.95rem;
+    }
+
+    .hero-header .name-pronounce-btn {
+        width: 1.9rem;
+        height: 1.9rem;
+        font-size: 1.12rem;
+        margin-top: 0.1rem;
+    }
+
+    .hero-header .bio-info {
         font-size: 1rem;
     }
 
@@ -327,9 +464,31 @@
         font-size: 1rem;
     }
 
-    .stacks-grid,
-    .current-grid {
+    #all-projects .projects-count {
+        font-size: 0.95rem;
+    }
+
+    #all-projects .all-projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .card-title {
+        max-width: 100%;
+        font-size: clamp(0.95rem, 4.8vw, 1.15rem);
+        padding: 0.35rem 0.55rem;
+    }
+
+    .card-label,
+    .card-tech-item {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.68rem;
+    }
+
+    #skills .stacks-grid,
+    #skills .current-grid {
         grid-template-columns: repeat(2, 1fr);
+        padding-top: var(--space-5);
+        padding-bottom: var(--space-5);
     }
 
     #skills .skills-body,
@@ -339,16 +498,20 @@
 
     #skills .stack-card,
     #skills .highlights-card {
-        width: clamp(2.5rem, 14vw, 3rem);
-        height: clamp(2.5rem, 14vw, 3rem);
+        width: clamp(3rem, 15.8vw, 3.45rem);
+        height: clamp(3rem, 15.8vw, 3.45rem);
     }
 
     #skills .stack-icon {
-        font-size: clamp(1.05rem, 6.5vw, 1.35rem);
+        font-size: clamp(1.3rem, 7.2vw, 1.62rem);
     }
 
     #skills .highlights-icon {
-        font-size: clamp(0.95rem, 6vw, 1.2rem);
+        font-size: clamp(1.2rem, 6.7vw, 1.45rem);
+    }
+
+    #skills .highlights-grid {
+        margin-top: var(--space-2);
     }
 
     #skills .highlights-name {
@@ -374,13 +537,19 @@
         width: 2.25rem;
     }
 
-    #education .grid-btn-left,
-    #education .grid-btn-right {
-        display: none !important;
+    #education .grid-btn-left[hidden],
+    #education .grid-btn-right[hidden] {
+        display: none;
     }
 
     .contact-card {
         width: 100%;
+        padding: 1.2rem 1rem;
+        border-radius: 16px;
+    }
+
+    .contact-copy p {
+        font-size: 1rem;
     }
 
     .profile-image {
@@ -397,15 +566,57 @@
 
     .footer-contacts-icons {
         gap: var(--space-1);
+        flex-wrap: wrap;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
     }
 }
 
 /* scale up for very large screens (TVs, big monitors) */
-@media (min-width: 1600px) {
-}
-
 @media (min-width: 2200px) {
     .container { max-width: 1800px; }
-    .name-info { font-size: 8rem; }
-    .title-info { font-size: 6em; }
+    .hero-header .name-info { font-size: 8rem; }
+    .hero-header .title-info { font-size: 6em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #matrix-bg {
+        display: none;
+    }
+
+    .section-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        will-change: auto;
+    }
+
+    .hero-header .intro-info-div,
+    .hero-header .intro-photo-div {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+
+    .hero-header .location-dot {
+        animation: none;
+    }
+
+    .hero-header .name-pronounce-btn {
+        transition: none;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+
+    .app-btn,
+    .link-button {
+        background-color: #f9f9f9;
+    }
 }

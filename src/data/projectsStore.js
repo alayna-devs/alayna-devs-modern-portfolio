@@ -13,7 +13,7 @@ export const projects = [
         status: "In-progress",
         live: "/",
         github: "https://github.com/ROM-01",
-        media: [projectPlaceholder]
+        media: [projectPlaceholder, ]
     },
     {
         id: "portfolio-v2",
@@ -24,10 +24,10 @@ export const projects = [
         tech: ["HTML", "CSS", "JS"],
         label: "website",
         featured: true,
-        status: "",
-        live: "something",
-        github: "something",
-        media: ["something", "demo.mp4"]
+        status: "Complete",
+        live: "/",
+        github: "https://github.com/ROM-01",
+        media: [projectPlaceholder, "demo.mp4"]
     },
     {
         id: "portfolio-v3",

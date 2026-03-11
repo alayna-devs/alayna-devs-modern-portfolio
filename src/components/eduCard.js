@@ -16,7 +16,26 @@ function toStatusClass(status = "") {
 export function createEduCards(items, typeClass = "") {
     if (!Array.isArray(items) || !items.length) return ""
 
-    return items.map((item, index) => {
+    const statusPriority = {
+        completed: 0,
+        "in-progress": 1,
+        upcoming: 2
+    }
+
+    const sortedItems = items
+        .map((item, index) => ({ item, index }))
+        .sort((a, b) => {
+            const aStatus = toStatusClass(a.item?.status || "")
+            const bStatus = toStatusClass(b.item?.status || "")
+            const aPriority = statusPriority[aStatus] ?? Number.MAX_SAFE_INTEGER
+            const bPriority = statusPriority[bStatus] ?? Number.MAX_SAFE_INTEGER
+
+            if (aPriority !== bPriority) return aPriority - bPriority
+            return a.index - b.index
+        })
+        .map(({ item }) => item)
+
+    return sortedItems.map((item, index) => {
         const title = escapeHtml(item.title || item.major || "")
         const provider = escapeHtml(item.provider || item.school || "")
         const date = escapeHtml(item.date || "")
@@ -29,12 +48,12 @@ export function createEduCards(items, typeClass = "") {
 
         return `
             <article class="edu-card ${typeClass}">
-                <h4>${title}</h4>
-                <h4>${provider}</h4>
-                <p>${date}</p>
+                <h4 class="edu-card-title">${title}</h4>
+                <h4 class="edu-card-provider">${provider}</h4>
+                <p class="edu-card-date">${date}</p>
                 ${status ? `<span class="edu-status ${statusClass}">${status}</span>` : ""}
-                ${location ? `<p>${location}</p>` : ""}
-                ${verifyUrl ? `<a href="${verifyUrl}" target="_blank" rel="noopener noreferrer">View</a>` : ""}
+                ${location ? `<p class="edu-card-location">${location}</p>` : ""}
+                ${verifyUrl ? `<a class="link-button edu-view-link" href="${verifyUrl}" target="_blank" rel="noopener noreferrer"><span>View</span><i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i></a>` : ""}
                 <img
                     class="edu-image"
                     src="${image}"

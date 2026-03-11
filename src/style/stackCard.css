@@ -3,6 +3,7 @@
     height: var(--space-6);
     background-color: black;
     border-radius: var(--radius-sm);
+    border: 1px solid rgba(201, 35, 81, 0.55);
 }
 
 .stack-icon {
@@ -26,12 +27,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: var(--space-4);
     width: var(--space-6);
     height: var(--space-6);
     background-color: black;
     border-radius: var(--radius-cr);
-    
+    border: 1px solid rgba(201, 35, 81, 0.55);
 }
 
 .highlights-name {

@@ -15,7 +15,10 @@ export function createProjectCard(project, options = {}) {
     const className = options.className ? ` ${options.className}` : ""
     const title = escapeHtml(project.title || "Untitled Project")
     const label = escapeHtml(project.label || "Project")
-    const cover = project.cover || projectPlaceholder
+    const techItemsHtml = Array.isArray(project.tech) && project.tech.length > 0
+        ? project.tech.map((item) => `<span class="card-tech-item">${escapeHtml(item)}</span>`).join("")
+        : `<span class="card-tech-item">N/A</span>`
+    const cover = escapeHtml(project.cover || projectPlaceholder)
     const imageLoading = options.imageLoading || "lazy"
     const imageFetchPriority = options.imageFetchPriority || "auto"
 
@@ -31,8 +34,11 @@ export function createProjectCard(project, options = {}) {
                 height="900"
             />
             <div class="card-content">
-                <span class="card-title">${title}</span>
-                <span class="card-label">${label}</span>
+                <h3 class="card-title">${title}</h3>
+                <div class="card-meta">
+                    <span class="card-label">${label}</span>
+                    <div class="card-tech-list">${techItemsHtml}</div>
+                </div>
             </div>
         </article>
     `

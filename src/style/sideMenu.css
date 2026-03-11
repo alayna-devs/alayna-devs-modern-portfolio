@@ -2,21 +2,29 @@
     position: fixed;
     right: 0;
     top: 0;
-    display: none;
-    width: min(100vw, 35rem);
+    width: min(100vw, 38rem);
     height: 100dvh;
-    background: linear-gradient(180deg, #121318 0%, #1e222c 100%);
-    border-left: 1px solid var(--color-border);
+    background: linear-gradient(to bottom, rgba(16, 17, 19), rgba(3, 4, 4));
+    border-left: var(--surface-panel-border);
     padding: var(--space-4);
     transform: translateX(100%);
-    transition: transform 0.25s ease;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.25s ease, opacity 0.2s ease, visibility 0s linear 0.25s;
     overflow-y: auto;
-    z-index: 1100;
+    z-index: 1200;
+    isolation: isolate;
+    filter: none;
 }
 
+
 .side-menu.active {
-    display: block;
     transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: transform 0.25s ease, opacity 0.2s ease;
 }
 
 .menu-close-btn {
@@ -24,12 +32,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.25rem;
-    height: 2.25rem;
+    width: var(--icon-btn-size);
+    height: var(--icon-btn-size);
     border-radius: var(--radius-cr);
-    border: 1px solid var(--color-border);
-    background: transparent;
-    color: var(--color-text);
+    border: var(--icon-btn-border);
+    background: var(--icon-btn-bg);
+    color: var(--icon-btn-color);
+    box-shadow: var(--icon-btn-shadow);
+    transition: transform 180ms ease, box-shadow 220ms ease, border-color 220ms ease, color 180ms ease;
+}
+
+.menu-close-btn:hover,
+.menu-close-btn:focus-visible {
+    transform: translateY(-2px) scale(1.03);
+    color: var(--icon-btn-hover-color);
+    box-shadow: var(--icon-btn-hover-shadow);
+}
+
+.menu-close-btn:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: var(--icon-btn-active-shadow);
 }
 
 .side-menu-group {
@@ -39,6 +61,7 @@
 .side-menu-group h5 {
     margin-bottom: var(--space-2);
     font-size: var(--fs-title-sm);
+    color: var(--color-primary);
 }
 
 .side-menu-links {
@@ -51,4 +74,8 @@
 .side-menu-links a {
     color: var(--color-text);
     opacity: 0.92;
+    text-decoration-line: underline;
+    text-decoration-color: var(--color-primary);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
 }

@@ -2,17 +2,31 @@ import { DEV, GITHUB, LINKEDIN, YOUTUBE } from "../data/links";
 import { createIcon } from "./fa_icons";
 
 export function createFooter() {
+    const currentYear = new Date().getFullYear();
+    const contactItems = [
+        { icon: "location-dot", label: "Location Template" },
+        { icon: "phone", label: "Phone Template" },
+        { icon: "envelope", label: "Email Template" },
+        { icon: "file-pdf", label: "Resume Template" },
+    ];
+
     return `
         <footer>
             <div class="footer-grid-container">
-                <div>
+                <div class="footer-top">
                     <div class="footer-brand">
                         <h2>alayna_devs</h2>
                         <ul class="footer-contacts-icons">
-                            <li>${createIcon("location-dot", "solid")}</li>
-                            <li>${createIcon("phone", "solid")}</li>
-                            <li>${createIcon("envelope", "solid")}</li>
-                            <li>${createIcon("file-pdf", "solid")}</li>
+                            ${contactItems
+        .map(
+            ({ icon, label }) => `
+                                <li class="footer-contact-item">
+                                    ${createIcon(icon, "solid")}
+                                    <span class="footer-contact-label">${label}</span>
+                                </li>
+                            `
+        )
+        .join("")}
                         </ul>
                     </div>
 
@@ -47,7 +61,7 @@ export function createFooter() {
                             </ul>
                         </div>
 
-                        <div>
+                        <div class="footer-upcoming">
                             <h3>Upcoming</h3>
                             <ul>
                                 <li>About Me Page</li>
@@ -59,13 +73,9 @@ export function createFooter() {
                     </div>
                 </div>
 
-                <div class="footer-cta">
-                    <h2>Let&#39;s build something great.</h2>
-                </div>
-
                 <div class="footer-bottom">
-                    <p>© 2026. All rights reserved by Alayna Taylor.</p>
-                    <p>Privacy Policy</p>
+                    <h2>Let&#39;s build something <span>great</span>.</h2>
+                    <p>© ${currentYear}. All rights reserved by Alayna Taylor.</p>
                 </div>
             </div>
         </footer>

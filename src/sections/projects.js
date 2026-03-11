@@ -16,7 +16,7 @@ export function createProjects() {
                         ${featuredCardsHtml}
                     </div>
 
-                    <a class="projects-btn" href="/projects" data-link>View All Projects</a>
+                    <a class="projects-btn link-button" href="/projects" data-link>View All Projects</a>
                 </div>
             </div>
         </section>
@@ -31,8 +31,10 @@ export function initProjectsSection() {
         const projectId = card?.dataset?.id
         if (!projectId) return
 
+        history.replaceState({ ...(history.state || {}), scrollY: window.scrollY }, "", window.location.href)
         history.pushState({}, "", `/project/${encodeURIComponent(projectId)}`)
         window.dispatchEvent(new PopStateEvent("popstate"))
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" })
     }
 
     const handleClick = (event) => {

@@ -1,8 +1,11 @@
 import { academics, certs, courses } from "../data/educationStore"
 import { createEduCards } from "../components/eduCard"
 
+const SCROLL_EPSILON = 1
+const NOOP = () => {}
+
 const educationGroups = [
-    { title: "Notable Certifications", items: certs, typeClass: "" },
+    { title: "Notable Certifications", items: certs, typeClass: "cert-card" },
     { title: "Courses and Programs", items: courses, typeClass: "course-card" },
     { title: "Academics Overview", items: academics, typeClass: "academic-card" }
 ]
@@ -41,7 +44,7 @@ export function createEducation() {
 
 export function initEducationSection() {
     const scrollSections = document.querySelectorAll(".edu-scroll")
-    if (!scrollSections.length) return
+    if (!scrollSections.length) return NOOP
 
     const disposers = []
 
@@ -55,16 +58,14 @@ export function initEducationSection() {
         const getStep = () => Math.max(Math.floor(grid.clientWidth * 0.92), 240)
 
         const updateButtons = () => {
-            const maxScroll = grid.scrollWidth - grid.clientWidth
-            const hasOverflow = grid.scrollWidth > grid.clientWidth + 1
+            const maxScroll = Math.max(0, grid.scrollWidth - grid.clientWidth)
+            const hasOverflow = maxScroll > SCROLL_EPSILON
 
-            leftBtn.style.display = hasOverflow ? "block" : "none"
-            rightBtn.style.display = hasOverflow ? "block" : "none"
+            leftBtn.hidden = !hasOverflow
+            rightBtn.hidden = !hasOverflow
 
-            if (!hasOverflow) return
-
-            leftBtn.disabled = grid.scrollLeft <= 1
-            rightBtn.disabled = grid.scrollLeft >= maxScroll - 1
+            leftBtn.disabled = !hasOverflow || grid.scrollLeft <= SCROLL_EPSILON
+            rightBtn.disabled = !hasOverflow || grid.scrollLeft >= maxScroll - SCROLL_EPSILON
         }
 
         let scrollRaf = 0
@@ -112,7 +113,5 @@ export function initEducationSection() {
         })
     })
 
-    return () => {
-        disposers.forEach(dispose => dispose())
-    }
+    return () => disposers.forEach(dispose => dispose())
 }

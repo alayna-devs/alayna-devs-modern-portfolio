@@ -32,9 +32,9 @@ export function createContacts() {
                         </div>
 
                         <div class="contact-links">
-                            <a class="contact-link-btn" href="mailto:alaynaonetay@gmail.com">Email Me</a>
-                            <a class="contact-link-btn" href="${LINKEDIN}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                            <a class="contact-link-btn" href="${GITHUB}" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            <a class="contact-link-btn link-button" href="mailto:alaynaonetay@gmail.com">Email Me</a>
+                            <a class="contact-link-btn link-button" href="${LINKEDIN}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                            <a class="contact-link-btn link-button" href="${GITHUB}" target="_blank" rel="noopener noreferrer">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -55,14 +55,33 @@ export function initContactCardTilt() {
 
     const maxRotation = 12
     const shadowDistance = 24
+    let frame = 0
+    let lastEvent = null
+    let cardRect = null
 
-    const handlePointerMove = (event) => {
-        const rect = card.getBoundingClientRect()
-        const x = event.clientX - rect.left
-        const y = event.clientY - rect.top
+    const updateRect = () => {
+        cardRect = card.getBoundingClientRect()
+    }
 
-        const centerX = rect.width / 2
-        const centerY = rect.height / 2
+    const resetCardState = () => {
+        card.style.transform = "translateZ(0) rotateX(0deg) rotateY(0deg)"
+        card.style.boxShadow = "0px 24px 40px rgba(0,0,0,0.28)"
+    }
+
+    const applyTilt = (event) => {
+        const isOverContactLinks = event.target instanceof Element && event.target.closest(".contact-links")
+        if (isOverContactLinks) {
+            // Keep hit-testing stable while hovering links to prevent cursor flicker.
+            resetCardState()
+            return
+        }
+
+        if (!cardRect) updateRect()
+        const x = event.clientX - cardRect.left
+        const y = event.clientY - cardRect.top
+
+        const centerX = cardRect.width / 2
+        const centerY = cardRect.height / 2
 
         const percentX = (x - centerX) / centerX
         const percentY = (y - centerY) / centerY
@@ -80,15 +99,32 @@ export function initContactCardTilt() {
         card.style.boxShadow = `${shadowX}px ${shadowY}px ${blur}px rgba(0,0,0,0.24)`
     }
 
-    const handlePointerLeave = () => {
-        card.style.transform = "translateZ(0) rotateX(0deg) rotateY(0deg)"
-        card.style.boxShadow = "0px 24px 40px rgba(0,0,0,0.28)"
+    const handlePointerMove = (event) => {
+        lastEvent = event
+        if (frame) return
+        frame = window.requestAnimationFrame(() => {
+            frame = 0
+            if (lastEvent) applyTilt(lastEvent)
+        })
     }
 
+    const handlePointerEnter = () => {
+        updateRect()
+    }
+
+    const handlePointerLeave = () => {
+        resetCardState()
+    }
+
+    card.addEventListener("pointerenter", handlePointerEnter)
     card.addEventListener("pointermove", handlePointerMove)
     card.addEventListener("pointerleave", handlePointerLeave)
+    window.addEventListener("resize", updateRect)
 
     return () => {
+        if (frame) window.cancelAnimationFrame(frame)
+        window.removeEventListener("resize", updateRect)
+        card.removeEventListener("pointerenter", handlePointerEnter)
         card.removeEventListener("pointermove", handlePointerMove)
         card.removeEventListener("pointerleave", handlePointerLeave)
     }

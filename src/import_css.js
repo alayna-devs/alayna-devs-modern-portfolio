@@ -9,7 +9,6 @@ import './style/education.css'
 import './style/contacts.css'
 import './style/footer.css'
 
-import './style/projectCard.css'
 import './style/stackCard.css'
 
 import './style/projectsView.css'

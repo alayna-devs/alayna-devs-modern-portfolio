@@ -5,18 +5,34 @@ import { createFooter } from "../components/footer"
 import '../style/projectsView.css'
 import { createProjectCard } from "../components/projectCard"
 
+function escapeHtml(value = "") {
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;")
+}
+
 function createCards(list) {
     return list
-        .map((project) => createProjectCard(project, { className: "project-card--compact" }))
+        .map((project) => createProjectCard(project))
         .join("")
 }
 
 function createFilterButtons() {
-    const labels = [...new Set(projects.map((project) => project.label).filter(Boolean))]
+    const labels = [...new Set(
+        projects
+            .map((project) => String(project.label || "").trim())
+            .filter(Boolean)
+    )]
 
     return [
-        `<button class="filter-btn active" data-filter="all">All</button>`,
-        ...labels.map((label) => `<button class="filter-btn" data-filter="${label}">${label}</button>`)
+        `<button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>`,
+        ...labels.map((label) => {
+            const safeLabel = escapeHtml(label)
+            return `<button class="filter-btn" data-filter="${safeLabel}" aria-pressed="false">${safeLabel}</button>`
+        })
     ].join("")
 }
 
@@ -56,13 +72,15 @@ export function createProjectView() {
         ${createNav()}
         <section id="all-projects">
             <div class="container">
-                <a href="/" data-link>Go Home</a>
+                <a class="link-button go-back-link" href="/" data-go-back data-link>Go Back</a>
                 <h1 class="all-projects-title">All My Projects</h1>
                 <div class="projects-toolbar">
                     <input
                         id="projectSearch"
                         class="projects-search"
                         type="search"
+                        aria-label="Search projects"
+                        autocomplete="off"
                         placeholder="Search by title, tech, or description"
                     />
                     <div class="projects-filters" id="projectsFilters">
@@ -92,6 +110,20 @@ export function initProjectView() {
 
     let activeFilter = "all"
     let searchText = ""
+    let inputDebounce = 0
+    const updateFilterButtonState = (activeButton) => {
+        filters.querySelectorAll(".filter-btn").forEach((button) => {
+            const isActive = button === activeButton
+            button.classList.toggle("active", isActive)
+            button.setAttribute("aria-pressed", String(isActive))
+        })
+    }
+    const openProjectDetails = (id) => {
+        history.replaceState({ ...(history.state || {}), scrollY: window.scrollY }, "", window.location.href)
+        history.pushState({}, "", `/project/${encodeURIComponent(id)}`)
+        window.dispatchEvent(new PopStateEvent("popstate"))
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" })
+    }
 
     const applyFilters = () => {
         const filteredProjects = getFilteredProjects(activeFilter, searchText)
@@ -99,12 +131,25 @@ export function initProjectView() {
     }
 
     const handleClick = (e) => {
+        const goBackLink = e.target.closest("[data-go-back]")
+        if (goBackLink) {
+            e.preventDefault()
+            if (window.history.length > 1) {
+                window.history.back()
+                return
+            }
+
+            history.pushState({}, "", "/")
+            window.dispatchEvent(new PopStateEvent("popstate"))
+            window.scrollTo({ top: 0, left: 0, behavior: "auto" })
+            return
+        }
+
         const filterButton = e.target.closest(".filter-btn")
         if (filterButton) {
+            if (filterButton.classList.contains("active")) return
             activeFilter = filterButton.dataset.filter || "all"
-            filters.querySelectorAll(".filter-btn").forEach((button) => {
-                button.classList.toggle("active", button === filterButton)
-            })
+            updateFilterButtonState(filterButton)
             applyFilters()
             return
         }
@@ -115,8 +160,7 @@ export function initProjectView() {
         const id = card.dataset.id
         if (!id) return
 
-        history.pushState({}, "", `/project/${encodeURIComponent(id)}`)
-        window.dispatchEvent(new PopStateEvent("popstate"))
+        openProjectDetails(id)
     }
 
     const handleKeydown = (e) => {
@@ -129,13 +173,16 @@ export function initProjectView() {
         if (!id) return
 
         e.preventDefault()
-        history.pushState({}, "", `/project/${encodeURIComponent(id)}`)
-        window.dispatchEvent(new PopStateEvent("popstate"))
+        openProjectDetails(id)
     }
 
     const handleInput = () => {
         searchText = search.value
-        applyFilters()
+        if (inputDebounce) window.clearTimeout(inputDebounce)
+        inputDebounce = window.setTimeout(() => {
+            inputDebounce = 0
+            applyFilters()
+        }, 120)
     }
 
     section.addEventListener("click", handleClick)
@@ -143,6 +190,7 @@ export function initProjectView() {
     search.addEventListener("input", handleInput)
 
     return () => {
+        if (inputDebounce) window.clearTimeout(inputDebounce)
         section.removeEventListener("click", handleClick)
         section.removeEventListener("keydown", handleKeydown)
         search.removeEventListener("input", handleInput)

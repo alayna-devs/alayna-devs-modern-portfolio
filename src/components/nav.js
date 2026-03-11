@@ -13,17 +13,17 @@ const barsIcon = createIcon("bars", "solid")
 
 export function createNav() {
     return `
-        <nav class="navbar">
+        <nav class="navbar nav-visible">
             <div class="container navdiv">
                 <div class="logo"><a href="/" data-link>alayna_devs</a></div>
 
                 <ul class="social-links">
-                    <li><a href="${LINKEDIN}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">${linkedInIcon}</a></li>
-                    <li><a href="${GITHUB}" target="_blank" rel="noopener noreferrer" aria-label="GitHub">${githubIcon}</a></li>
-                    <li><a href="${LEETCODE}" target="_blank" rel="noopener noreferrer" aria-label="LeetCode">${leetcodeIcon}</a></li>
-                    <li><a href="${CODEWARS}" target="_blank" rel="noopener noreferrer" aria-label="Codewars">${codewarsIcon}</a></li>
-                    <li><a href="${HACKERRANK}" target="_blank" rel="noopener noreferrer" aria-label="HackerRank">${hackerrankIcon}</a></li>
-                    <li><a href="${RESUME}" target="_blank" rel="noopener noreferrer" aria-label="Resume PDF">${resumeIcon}</a></li>
+                    <li><a href="${LINKEDIN}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-tooltip="LinkedIn">${linkedInIcon}</a></li>
+                    <li><a href="${GITHUB}" target="_blank" rel="noopener noreferrer" aria-label="GitHub" data-tooltip="GitHub">${githubIcon}</a></li>
+                    <li><a href="${LEETCODE}" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" data-tooltip="Leetcode">${leetcodeIcon}</a></li>
+                    <li><a href="${CODEWARS}" target="_blank" rel="noopener noreferrer" aria-label="Codewars" data-tooltip="Codewars">${codewarsIcon}</a></li>
+                    <li><a href="${HACKERRANK}" target="_blank" rel="noopener noreferrer" aria-label="HackerRank" data-tooltip="HackerRank">${hackerrankIcon}</a></li>
+                    <li><a href="${RESUME}" target="_blank" rel="noopener noreferrer" aria-label="Resume PDF" data-tooltip="Resume">${resumeIcon}</a></li>
                     <li>
                         <button class="menu-toggle bars-icon" type="button" aria-expanded="false" aria-label="Open menu">
                             ${barsIcon}
@@ -46,16 +46,30 @@ export function initMenu() {
 
     if (!menuToggle || !menu || !closeButton) return
 
+    const existingDetachedMenu = document.body.querySelector(".side-menu[data-detached='true']")
+    if (existingDetachedMenu && existingDetachedMenu !== menu) {
+        existingDetachedMenu.remove()
+    }
+    if (menu.parentElement !== document.body) {
+        document.body.appendChild(menu)
+    }
+    menu.setAttribute("data-detached", "true")
+
     const openMenu = () => {
+        setNavVisible(true)
         menu.classList.add("active")
         menu.setAttribute("aria-hidden", "false")
         menuToggle.setAttribute("aria-expanded", "true")
+        nav.classList.add("menu-open")
+        document.body.classList.add("menu-open")
     }
 
     const closeMenu = () => {
         menu.classList.remove("active")
         menu.setAttribute("aria-hidden", "true")
         menuToggle.setAttribute("aria-expanded", "false")
+        nav.classList.remove("menu-open")
+        document.body.classList.remove("menu-open")
     }
 
     const handleToggleClick = (event) => {
@@ -82,15 +96,67 @@ export function initMenu() {
         if (event.key === "Escape") closeMenu()
     }
 
+    const handleMenuLinkClick = (event) => {
+        const link = event.target.closest("a")
+        if (!link) return
+        closeMenu()
+    }
+
     menuToggle.addEventListener("click", handleToggleClick)
     closeButton.addEventListener("click", handleCloseClick)
+    menu.addEventListener("click", handleMenuLinkClick)
     document.addEventListener("click", handleOutsideClick)
     document.addEventListener("keydown", handleEscape)
 
+    let lastScrollY = window.scrollY
+    const topBuffer = 16
+    const minDelta = 6
+    let isNavVisible = true
+    let scrollRaf = 0
+    const setNavVisible = (visible) => {
+        if (visible === isNavVisible) return
+        isNavVisible = visible
+        nav.classList.toggle("nav-visible", visible)
+        nav.classList.toggle("nav-hidden", !visible)
+    }
+    
+    const processScroll = () => {
+        if (menu.classList.contains("active")) return
+
+        const currentScrollY = window.scrollY
+        const delta = currentScrollY - lastScrollY
+        
+        if (currentScrollY <= topBuffer) {
+            setNavVisible(true)
+            lastScrollY = currentScrollY
+            return
+        }
+        
+        if (Math.abs(delta) < minDelta) return
+        
+        setNavVisible(delta < 0)
+        lastScrollY = currentScrollY
+    }
+
+    const handleScroll = () => {
+        if (scrollRaf) return
+        scrollRaf = window.requestAnimationFrame(() => {
+            scrollRaf = 0
+            processScroll()
+        })
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    processScroll()
+
     return () => {
+        closeMenu()
         menuToggle.removeEventListener("click", handleToggleClick)
         closeButton.removeEventListener("click", handleCloseClick)
+        menu.removeEventListener("click", handleMenuLinkClick)
         document.removeEventListener("click", handleOutsideClick)
         document.removeEventListener("keydown", handleEscape)
+        if (scrollRaf) window.cancelAnimationFrame(scrollRaf)
+        window.removeEventListener("scroll", handleScroll)
+        menu.remove()
     }
 }

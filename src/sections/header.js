@@ -3,14 +3,30 @@ import { heroPhoto } from "../data/images"
 
 export function createHeader() {
     return `
-        <header>
+        <header class="hero-header">
             <div class="container">
                 <div class="intro-div">
                     <div class="intro-info-div">
-                        <h1 class="name-info">Alayna Taylor</h1>
+                        <div class="location-line">
+                            <span class="location-dot" aria-hidden="true"></span>
+                            <span class="location-text">Chicago, IL</span>
+                        </div>
+                        <div class="name-row">
+                            <h1 class="name-info">Alayna Taylor</h1>
+                            <button
+                                class="name-pronounce-btn icon-tooltip"
+                                type="button"
+                                data-pronounce-btn
+                                data-audio-src="/audio/name-pronunciation.mp3"
+                                data-tooltip="Hear pronunciation"
+                                aria-label="Play name pronunciation"
+                            >
+                                <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+                            </button>
+                        </div>
                         <div class="title-info">Software Engineer</div>
                         <p class="bio-info">Designing robust systems and building dependable software.</p>
-                        <a class="github-btn" href="${GITHUB}" target="_blank" rel="noopener noreferrer">View My GitHub</a>
+                        <a class="github-btn app-btn link-button" href="${GITHUB}" target="_blank" rel="noopener noreferrer">View My GitHub</a>
                     </div>
 
                     <div class="intro-photo-div">

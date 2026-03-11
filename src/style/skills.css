@@ -4,6 +4,7 @@
 
 .skills-title {
     font-size: var(--fs-section-title);
+    font-weight: normal;
 }
 
 .skills-body {
