@@ -15,16 +15,17 @@ export function createSkills() {
                 <div class="skills-content">
                     <div class="stacks-div">
                         <h2 class="skills-title">Engineering Toolkit</h2>
-                        <p class="skills-body">Core stack and current learning focus.</p>
-
-                        <div class="stacks-grid">
-                            ${baseStackCardsHtml}
-                        </div>
-
                         <div class="current-div">
-                            <p class="current-title">Currently Focused On</p>
+                            <p class="current-title">Focused Core Stack</p>
                             <div class="current-grid">
                                 ${currentStackCardsHtml}
+                            </div>
+                        </div>
+
+                        <div class="overall-div">
+                            <p class="current-title">Overall Core Stack</p>
+                            <div class="stacks-grid">
+                                ${baseStackCardsHtml}
                             </div>
                         </div>
                     </div>

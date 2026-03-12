@@ -9,7 +9,7 @@ export function createProjects() {
         <section id="projects">
             <div class="container">
                 <h2 class="projects-title">Featured Projects</h2>
-                <p class="projects-body">Selected work across frontend, systems, and tooling.</p>
+                <p class="projects-body">Selected work across frontend, backend, tooling, and more!</p>
 
                 <div class="projects-grid-div">
                     <div class="projects-grid" id="projectsGrid">

@@ -1,5 +1,6 @@
 import { GITHUB } from "../data/links"
 import { heroPhoto } from "../data/images"
+import namePronounceAudio from "../assets/audio/name-pronounce.mp3"
 
 export function createHeader() {
     return `
@@ -17,7 +18,7 @@ export function createHeader() {
                                 class="name-pronounce-btn icon-tooltip"
                                 type="button"
                                 data-pronounce-btn
-                                data-audio-src="/audio/name-pronunciation.mp3"
+                                data-audio-src="${namePronounceAudio}"
                                 data-tooltip="Hear pronunciation"
                                 aria-label="Play name pronunciation"
                             >
@@ -25,7 +26,7 @@ export function createHeader() {
                             </button>
                         </div>
                         <div class="title-info">Software Engineer</div>
-                        <p class="bio-info">Designing robust systems and building dependable software.</p>
+                        <p class="bio-info">Computer Science student focused on full-stack web development, building responsive applications while strengthening foundations in React, JS/TS, Express.js, and PostgreSQL.</p>
                         <a class="github-btn app-btn link-button" href="${GITHUB}" target="_blank" rel="noopener noreferrer">View My GitHub</a>
                     </div>
 

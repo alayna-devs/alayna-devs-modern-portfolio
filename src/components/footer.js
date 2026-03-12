@@ -4,10 +4,10 @@ import { createIcon } from "./fa_icons";
 export function createFooter() {
     const currentYear = new Date().getFullYear();
     const contactItems = [
-        { icon: "location-dot", label: "Location Template" },
-        { icon: "phone", label: "Phone Template" },
-        { icon: "envelope", label: "Email Template" },
-        { icon: "file-pdf", label: "Resume Template" },
+        { icon: "location-dot", label: "Chicago, IL" },
+        { icon: "phone", label: "+1 708-506-2319" },
+        { icon: "envelope", label: "alaynaonetay@gmail.com" },
+        { icon: "heart", label: "Thanks for visiting!" },
     ];
 
     return `
@@ -64,10 +64,10 @@ export function createFooter() {
                         <div class="footer-upcoming">
                             <h3>Upcoming</h3>
                             <ul>
-                                <li>About Me Page</li>
-                                <li>Work Experience Section</li>
-                                <li>Technical Blog</li>
-                                <li>Case Studies</li>
+                                <li>- About Me</li>
+                                <li>- Work Experience</li>
+                                <li>- Blog Articles</li>
+                                <li>- Admin Panel</li>
                             </ul>
                         </div>
                     </div>

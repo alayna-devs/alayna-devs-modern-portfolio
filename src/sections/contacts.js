@@ -28,7 +28,7 @@ export function createContacts() {
 
                         <div class="contact-copy">
                             <h2 class="tech-title">Impressed? Let&#39;s Connect!</h2>
-                            <p>I build fast, accessible web apps with React, Next.js, and TypeScript. I&#39;m looking for teams that value product quality, performance, and thoughtful UX.</p>
+                            <p>I build fast, accessible web applications using React, TailwindCSS, Express.js, and Javascript. I’m always interested in connecting with teams that care about performance, clean design, and great user experiences.</p>
                         </div>
 
                         <div class="contact-links">

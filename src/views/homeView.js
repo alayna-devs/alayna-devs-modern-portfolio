@@ -9,6 +9,7 @@ import { createScrollToggleButton } from '../components/scrollToggleButton'
 
 import '../import_css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
+import 'devicon/devicon.min.css'
 
 export function createHomeView() {
     return `

@@ -2,7 +2,7 @@ export function createStackCard(stack) {
     if (!stack) return ""
 
     return `
-        <div class="stack-card" title="${stack.name}">
+        <div class="stack-card icon-tooltip" data-tooltip="${stack.name}">
             <div class="stack-icon" aria-hidden="true">
                 ${stack.icon}
             </div>

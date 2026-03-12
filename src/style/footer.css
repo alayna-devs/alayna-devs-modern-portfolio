@@ -3,7 +3,7 @@ footer {
     background: var(--surface-panel-bg);
     border-top: var(--surface-panel-border);
     margin-top: var(--section-space-lg2);
-    padding-block: var(--space-6);
+    padding-block: clamp(1.75rem, 4.8vw, var(--space-6));
 }
 
 @supports (backdrop-filter: blur(2px)) {
@@ -76,7 +76,7 @@ footer {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-primary);
+    color: var(--color-accent);
     font-size: clamp(1.45rem, 2.1vw, 1.85rem);
     line-height: 1;
     transition: transform 180ms ease, color 180ms ease;
@@ -85,7 +85,7 @@ footer {
 
 .footer-contact-item:hover {
     transform: translateY(-4px) scale(1.09);
-    color: var(--color-primary-hover);
+    color: var(--color-primary);
 }
 
 .footer-contact-label {
@@ -100,13 +100,14 @@ footer {
     white-space: nowrap;
     background: #000;
     border: 1px solid rgba(201, 35, 81, 0.4);
-    color: var(--color-primary-hover);
+    color: var(--icon-description-text-color);
     opacity: 0;
     pointer-events: none;
     transition: opacity 170ms ease, transform 170ms ease;
 }
 
 .footer-contact-item:hover .footer-contact-label {
+    color: var(--icon-description-text-color);
     opacity: 1;
     transform: translate(-50%, 0);
 }
@@ -137,7 +138,7 @@ footer {
 
 .footer-bottom h2 {
     margin: 0;
-    font-size: clamp(1.95rem, 7.2vw, 5.2rem);
+    font-size: clamp(1.95rem, 8.2vw, 5.2rem);
     line-height: 0.96;
     letter-spacing: 0.01em;
     max-width: 80%;

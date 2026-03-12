@@ -11,6 +11,18 @@
     .footer-grid {
         width: 55%;
     }
+
+    .footer-bottom h2 {
+        max-width: 100%;
+        white-space: normal;
+    }
+}
+
+/* Near desktop transition (1500px and below) */
+@media (max-width: 1500px) {
+    :root {
+        --container-padding: clamp(5.5rem, calc(6vw - 1rem), 6rem);
+    }
 }
 
 /* PC/Tablet (1100px and below) */
@@ -29,7 +41,9 @@
     }
 
     .hero-header .title-info {
+        font-size: clamp(1.35rem, 6vw, 2.4rem);
         margin-top: 1vw;
+        white-space: normal;
     }
 
     .projects-title,
@@ -48,6 +62,7 @@
         white-space: normal;
         font-size: clamp(1rem, 3vw, 1.2rem);
         margin-top: 0.2rem;
+        max-width: 60ch;
     }
 
     .hero-header .intro-photo {
@@ -152,14 +167,6 @@
         height: clamp(3.8rem, 5.9vw, 4.4rem);
     }
 
-    #skills .stack-icon {
-        font-size: clamp(1.95rem, 2.9vw, 2.45rem);
-    }
-
-    #skills .highlights-icon {
-        font-size: clamp(1.7rem, 2.6vw, 2.2rem);
-    }
-
     #skills .highlights-name {
         font-size: clamp(0.95rem, 1.5vw, 1.05rem);
     }
@@ -207,8 +214,16 @@
 
 /* Tablet (768px and below) */
 @media (max-width: 768px) {
+    .hero-header {
+        padding-top: 2rem;
+    }
+
+    #projects,
+    #skills,
+    #education,
+    #contacts,
     footer {
-        padding-block: var(--space-5);
+        margin-top: 11rem;
     }
 
     .container {
@@ -314,11 +329,11 @@
     }
 
     #skills .stack-icon {
-        font-size: clamp(1.55rem, 4.8vw, 1.95rem);
+        font-size: clamp(2.3rem, 8vw, 2rem);
     }
 
     #skills .highlights-icon {
-        font-size: clamp(1.35rem, 4.3vw, 1.7rem);
+        font-size: clamp(2rem, 4.3vw, 1.7rem);
     }
 
     #skills .highlights-name {
@@ -329,6 +344,7 @@
         width: min(78vw, 380px);
         height: auto;
         min-height: 220px;
+        gap: 0.8rem;
     }
 
     #education .edu-content {
@@ -348,10 +364,6 @@
         width: min(82vw, 330px);
         min-height: 200px;
         padding: var(--space-3);
-    }
-
-    .edu-card {
-        gap: 0.8rem;
     }
 
     .edu-view-link {
@@ -393,6 +405,14 @@
 @media (max-width: 480px) {
     .hero-header {
         margin-top: 7rem;
+    }
+
+    #projects,
+    #skills,
+    #education,
+    #contacts,
+    footer {
+        margin-top: 11rem;
     }
 
     .container {
@@ -458,6 +478,10 @@
         font-size: 1rem;
     }
 
+    .hero-header .title-info {
+        font-size: clamp(1.2rem, 7.2vw, 1.8rem);
+    }
+
     .projects-body,
     .skills-body,
     .current-title {
@@ -500,14 +524,6 @@
     #skills .highlights-card {
         width: clamp(3rem, 15.8vw, 3.45rem);
         height: clamp(3rem, 15.8vw, 3.45rem);
-    }
-
-    #skills .stack-icon {
-        font-size: clamp(1.3rem, 7.2vw, 1.62rem);
-    }
-
-    #skills .highlights-icon {
-        font-size: clamp(1.2rem, 6.7vw, 1.45rem);
     }
 
     #skills .highlights-grid {
@@ -557,11 +573,12 @@
     }
 
     .side-menu {
-        width: 100vw;
+        width: 100%;
     }
 
     .footer-grid-container {
-        gap: var(--space-4);
+        gap: var(--space-3);
+        padding-inline: 0.75rem;
     }
 
     .footer-contacts-icons {
@@ -570,7 +587,7 @@
     }
 
     .footer-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 }
 

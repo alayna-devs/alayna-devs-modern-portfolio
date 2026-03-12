@@ -7,7 +7,8 @@
     --color-bg: #0c0c0c;
     --color-text: rgba(255, 255, 255, 0.87);
     --color-primary: #C92351;
-    --color-primary-hover: #df577e;
+    --color-primary-hover: #f37095;
+    --color-accent: #ed88a5;
     --color-border: rgba(255, 255, 255, 0.25);
 
     --color-surface: #1a1a1a;
@@ -24,10 +25,11 @@
     /* SHARED ICON BUTTON EFFECT */
     --icon-btn-size: 2.75rem;
     --icon-btn-border: 1px solid rgba(201, 35, 81, 0.45);
-    --icon-btn-bg: var(--color-black);
-    --icon-btn-color: var(--color-primary);
+    --icon-btn-bg: rgba(0, 0, 0, 0.4);
+    --icon-btn-color: var(--color-accent);
     --icon-btn-shadow: 0 10px 22px rgba(201, 35, 81, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     --icon-btn-hover-color: #ffd4e0;
+    --icon-description-text-color: var(--icon-btn-hover-color);
     --icon-btn-hover-shadow: 0 14px 30px rgba(201, 35, 81, 0.34), 0 0 0 3px rgba(201, 35, 81, 0.2);
     --icon-btn-active-shadow: 0 8px 14px rgba(201, 35, 81, 0.22);
 
@@ -36,7 +38,7 @@
     ========================== */
 
     --container-max: 1400px;
-    --container-padding: clamp(0rem, calc(4vw - 1rem), 2rem);
+    --container-padding: clamp(1rem, calc(4vw - 0.5rem), 2.5rem);
 
 
     /* =========================

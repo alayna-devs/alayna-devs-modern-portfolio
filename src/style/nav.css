@@ -87,13 +87,23 @@
     transition: transform 180ms ease, box-shadow 220ms ease, border-color 220ms ease, color 180ms ease;
 }
 
+.social-links a {
+    color: var(--color-primary);
+}
+
 .social-links a:hover,
 .social-links a:focus-visible,
 .menu-toggle:hover,
 .menu-toggle:focus-visible {
     transform: translateY(-2px) scale(1.03);
+    border-color: var(--color-accent);
     color: var(--icon-btn-hover-color);
     box-shadow: var(--icon-btn-hover-shadow);
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+    color: var(--color-primary-hover);
 }
 
 .social-links a:active,
@@ -115,7 +125,7 @@
     white-space: nowrap;
     background: #000;
     border: 1px solid var(--icon-btn-border-color, rgba(201, 35, 81, 0.45));
-    color: var(--icon-btn-hover-color);
+    color: var(--icon-description-text-color);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
     opacity: 0;
     pointer-events: none;
@@ -124,12 +134,14 @@
 
 .social-links a:hover::after,
 .social-links a:focus-visible::after {
+    color: var(--icon-description-text-color);
     opacity: 1;
     transform: translate(-50%, 0);
 }
 
 .menu-toggle {
     padding: 0;
+    cursor: pointer;
 }
 
 .bars-icon {

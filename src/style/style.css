@@ -17,6 +17,7 @@
 
 html {
   scroll-padding-top: calc(var(--nav-height) + 0.75rem);
+  overflow-x: clip;
 }
 
 *,
@@ -29,11 +30,31 @@ html {
 body, #app {
   margin: 0;
   width: 100%;
-  
-  /* For Firefox */
-  scrollbar-width: none;
-  /* For Internet Explorer and Edge (legacy) */
-  -ms-overflow-style: none; 
+  overflow-x: hidden;
+}
+
+html {
+  scrollbar-color: var(--color-primary) #111113;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 0.72rem;
+  height: 0.72rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: #111113;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 999px;
+  border: 2px solid #111113;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-hover);
 }
 
 body.menu-open {
@@ -94,12 +115,12 @@ body.menu-open::before {
 }
 
 .matrix-digit.near {
-  font-size: clamp(1.35rem, 1.8vw, 2.1rem);
+  font-size: clamp(1.75rem, 2.3vw, 2.7rem);
   filter: blur(0.1px);
 }
 
 .matrix-digit.far {
-  font-size: clamp(1rem, 1.3vw, 1.55rem);
+  font-size: clamp(1.25rem, 1.7vw, 2rem);
   filter: blur(0.3px);
 }
 
@@ -137,6 +158,7 @@ h1 {
 button {
   font-family: inherit;
   font-size: 1em;
+  color: var(--color-accent);
 }
 
 :where(button, .app-btn, .link-button, .projects-btn, .contact-link-btn, .filter-btn) {
@@ -161,8 +183,8 @@ button {
   padding: 0.58rem 1.15rem;
   border-radius: 999px;
   border: var(--icon-btn-border);
-  background: rgba(8, 8, 8, 0.8);
-  color: var(--color-primary);
+  background: var(--icon-btn-bg);
+  color: var(--color-accent);
   font-weight: var(--fw-md);
   letter-spacing: 0.01em;
   box-shadow: var(--icon-btn-shadow);
@@ -183,9 +205,9 @@ button {
 .link-button:hover,
 .link-button:focus-visible {
   transform: translateY(-2px);
-  color: var(--color-primary);
+  color: var(--color-accent);
   border-color: rgba(255, 133, 170, 0.95);
-  box-shadow: 0 14px 30px rgba(201, 35, 81, 0.34), 0 0 0 3px rgba(201, 35, 81, 0.24);
+  box-shadow: 0 6px 20px rgba(201, 35, 81, 0.28), 0 -8px 22px rgba(201, 35, 81, 0.26), 0 0 0 3px rgba(201, 35, 81, 0.24);
 }
 
 .app-btn:focus-visible,
@@ -217,7 +239,7 @@ button {
   white-space: nowrap;
   background: #000;
   border: 1px solid var(--icon-btn-border-color, rgba(201, 35, 81, 0.45));
-  color: var(--icon-btn-hover-color);
+  color: var(--icon-description-text-color);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
   opacity: 0;
   pointer-events: none;
@@ -227,6 +249,7 @@ button {
 
 .icon-tooltip:hover::after,
 .icon-tooltip:focus-visible::after {
+  color: var(--icon-description-text-color);
   opacity: 1;
   transform: translate(-50%, 0);
 }
@@ -240,8 +263,8 @@ button {
   height: clamp(2.8rem, 3vw, 3.2rem);
   border-radius: 999px;
   border: 1px solid rgba(201, 35, 81, 0.55);
-  background: rgba(10, 10, 10, 0.88);
-  color: var(--color-primary);
+  background: var(--icon-btn-bg);
+  color: var(--color-accent);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(201, 35, 81, 0.18);
   cursor: pointer;
 }
