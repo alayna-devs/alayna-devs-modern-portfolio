@@ -1,4 +1,3 @@
-import { GITHUB, LINKEDIN } from "../data/links"
 import { profilePhoto } from "../data/images"
 
 export function createContacts() {
@@ -22,19 +21,13 @@ export function createContacts() {
 
                             <div>
                                 <h3>Alayna Taylor</h3>
-                                <p>Software Engineer | Full-Stack</p>
+                                <p>Software Engineer | Full-Stack Web Developer</p>
                             </div>
                         </div>
 
                         <div class="contact-copy">
                             <h2 class="tech-title">Impressed? Let&#39;s Connect!</h2>
                             <p>I build fast, accessible web applications using React, TailwindCSS, Express.js, and Javascript. I’m always interested in connecting with teams that care about performance, clean design, and great user experiences.</p>
-                        </div>
-
-                        <div class="contact-links">
-                            <a class="contact-link-btn link-button" href="mailto:alaynaonetay@gmail.com">Email Me</a>
-                            <a class="contact-link-btn link-button" href="${LINKEDIN}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                            <a class="contact-link-btn link-button" href="${GITHUB}" target="_blank" rel="noopener noreferrer">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -69,12 +62,6 @@ export function initContactCardTilt() {
     }
 
     const applyTilt = (event) => {
-        const isOverContactLinks = event.target instanceof Element && event.target.closest(".contact-links")
-        if (isOverContactLinks) {
-            // Keep hit-testing stable while hovering links to prevent cursor flicker.
-            resetCardState()
-            return
-        }
 
         if (!cardRect) updateRect()
         const x = event.clientX - cardRect.left

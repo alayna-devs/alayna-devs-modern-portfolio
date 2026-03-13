@@ -4,6 +4,17 @@ export function initSectionScrollReveal() {
     const sections = document.querySelectorAll("#app section")
     if (!sections.length) return NOOP
 
+    const revealIfInView = (section) => {
+        const rect = section.getBoundingClientRect()
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight
+        const entersViewport = rect.top <= viewportHeight * 0.92 && rect.bottom >= 0
+        if (entersViewport) {
+            section.classList.add("is-visible")
+            return true
+        }
+        return false
+    }
+
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     if (reduceMotion) {
         sections.forEach((section) => {
@@ -19,13 +30,24 @@ export function initSectionScrollReveal() {
             observer.unobserve(entry.target)
         })
     }, {
-        threshold: 0.16,
-        rootMargin: "0px 0px -8% 0px"
+        threshold: 0.08,
+        rootMargin: "0px 0px -4% 0px"
     })
 
     sections.forEach((section) => {
         section.classList.add("section-reveal")
-        observer.observe(section)
+        if (!revealIfInView(section)) {
+            observer.observe(section)
+        }
+    })
+
+    // Ensure sections already in-view at route load reveal immediately.
+    requestAnimationFrame(() => {
+        sections.forEach((section) => {
+            if (!section.classList.contains("is-visible") && revealIfInView(section)) {
+                observer.unobserve(section)
+            }
+        })
     })
 
     return () => observer.disconnect()

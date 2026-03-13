@@ -223,7 +223,15 @@
     #education,
     #contacts,
     footer {
-        margin-top: 11rem;
+        margin-top: 9rem;
+    }
+
+    #all-projects {
+        margin-top: 7rem;
+    }
+
+    #project-details {
+        margin-top: 9rem;
     }
 
     .container {
@@ -294,6 +302,13 @@
         max-height: 380px;
     }
 
+    #project-details .details-action {
+        white-space: nowrap;
+        width: fit-content;
+        max-width: 100%;
+        min-height: 2.5rem;
+    }
+
     .card-title {
         font-size: clamp(1.05rem, 3.9vw, 1.4rem);
     }
@@ -333,11 +348,11 @@
     }
 
     #skills .highlights-icon {
-        font-size: clamp(2rem, 4.3vw, 1.7rem);
+        font-size: clamp(1.25rem, 4vw, 1.5rem);
     }
 
     #skills .highlights-name {
-        font-size: clamp(0.88rem, 2.7vw, 0.98rem);
+        font-size: clamp(0.84rem, 2.5vw, 0.94rem);
     }
 
     .edu-card {
@@ -412,7 +427,15 @@
     #education,
     #contacts,
     footer {
-        margin-top: 11rem;
+        margin-top: 9rem;
+    }
+
+    #all-projects {
+        margin-top: 7rem;
+    }
+
+    #project-details {
+        margin-top: 9rem;
     }
 
     .container {
@@ -435,7 +458,7 @@
     }
 
     #project-details .project-details-div {
-        padding: calc(var(--space-2) + 3rem);
+        padding: calc(var(--space-2) + 1rem);
         gap: var(--space-2);
     }
 
@@ -447,6 +470,13 @@
     #project-details .details-media {
         min-height: 210px;
         max-height: 300px;
+    }
+
+    #project-details .details-action {
+        white-space: nowrap;
+        width: fit-content;
+        max-width: 100%;
+        min-height: 2.35rem;
     }
 
     .all-projects-title {
@@ -468,10 +498,14 @@
     }
 
     .hero-header .name-pronounce-btn {
-        width: 1.9rem;
-        height: 1.9rem;
-        font-size: 1.12rem;
-        margin-top: 0.1rem;
+        width: 1.55rem;
+        height: 1.55rem;
+        font-size: 0.92rem;
+        margin-top: 0;
+    }
+
+    .hero-header .name-row {
+        gap: 0.45rem;
     }
 
     .hero-header .bio-info {
@@ -530,8 +564,12 @@
         margin-top: var(--space-2);
     }
 
+    #skills .highlights-icon {
+        font-size: clamp(1.1rem, 6vw, 1.35rem);
+    }
+
     #skills .highlights-name {
-        font-size: 0.9rem;
+        font-size: 0.84rem;
     }
 
     .edu-card {
