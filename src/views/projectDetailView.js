@@ -1,4 +1,4 @@
-import { projects } from "../data/projectsStore"
+import { getProjects } from "../data/projectsStore"
 import { projectPlaceholder } from "../data/images"
 import { openNewTab } from "../utils/utils"
 
@@ -83,6 +83,7 @@ function renderMediaItem(media, index, title) {
 }
 
 export function createProjectDetailView(id) {
+    const projects = getProjects()
     const projectIndex = projects.findIndex((p) => p.id === id)
     const project = projectIndex >= 0 ? projects[projectIndex] : undefined
 

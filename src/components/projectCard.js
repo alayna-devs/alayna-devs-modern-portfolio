@@ -9,6 +9,17 @@ function escapeHtml(value = "") {
         .replaceAll("'", "&#39;")
 }
 
+function isImageSource(value = "") {
+    const normalized = String(value || "").trim()
+    if (!normalized) return false
+
+    if (normalized.startsWith("data:image/")) return true
+    if (normalized.startsWith("blob:")) return true
+    if (normalized.startsWith("/")) return true
+
+    return /\.(avif|webp|png|jpe?g|gif|svg)([?#].*)?$/i.test(normalized)
+}
+
 export function createProjectCard(project, options = {}) {
     if (!project || !project.id) return ""
 
@@ -18,7 +29,10 @@ export function createProjectCard(project, options = {}) {
     const techItemsHtml = Array.isArray(project.tech) && project.tech.length > 0
         ? project.tech.map((item) => `<span class="card-tech-item">${escapeHtml(item)}</span>`).join("")
         : `<span class="card-tech-item">N/A</span>`
-    const cover = escapeHtml(project.cover || projectPlaceholder)
+    const coverSource = isImageSource(project.cover)
+        ? project.cover
+        : projectPlaceholder
+    const cover = escapeHtml(coverSource)
     const imageLoading = options.imageLoading || "lazy"
     const imageFetchPriority = options.imageFetchPriority || "auto"
 

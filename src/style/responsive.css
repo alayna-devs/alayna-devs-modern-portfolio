@@ -1,32 +1,11 @@
 /* Shared responsive tokens */
 :root {
     --tablet-section-top-space: 12rem;
-    --mobile-section-top-space: 3rem;
-    --mobile-page-top-space: 7rem;
+    --mobile-section-top-space: 9rem;
     --tablet-text-btn-pad-y: 0.24rem;
     --tablet-text-btn-pad-x: 0.82rem;
     --mobile-text-btn-pad-y: 0.2rem;
     --mobile-text-btn-pad-x: 0.74rem;
-}
-
-/* Tablet-only corrections (481px - 768px) */
-@media (min-width: 481px) and (max-width: 768px) {
-    .hero-header .name-pronounce-btn {
-        width: calc(clamp(2.05rem, 2.45vw, 2.4rem) + 2rem);
-        height: calc(clamp(2.05rem, 2.45vw, 2.4rem) + 2rem);
-        font-size: calc(clamp(1.18rem, 1.48vw, 1.52rem) + 2rem);
-    }
-
-    .projects-body,
-    .skills-body,
-    .current-title,
-    #education .edu-group h3 {
-        margin-top: var(--space-2);
-    }
-
-    #education .edu-content {
-        gap: var(--space-2);
-    }
 }
 
 /* Desktop/Laptop (1360px and below) */
@@ -261,12 +240,24 @@
     }
 }
 
-/* Tablet (768px and below) */
-@media (max-width: 768px) {
-    .hero-header {
-        padding-top: 2rem;
+/* Tablet-specific project detail tuning (769px - 1100px) */
+@media (min-width: 769px) and (max-width: 1100px) {
+    #project-details .details-title {
+        font-size: calc(clamp(1.6rem, 8vw, 2.15rem) + 0.8rem);
     }
 
+    #project-details .project-details-div {
+        gap: 4.5rem;
+    }
+
+    #project-details .details-actions,
+    #project-details .details-media-div {
+        gap: 2.5rem;
+    }
+}
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
     #projects,
     #skills,
     #education,
@@ -502,9 +493,6 @@
 
 /* Mobile (480px and below) */
 @media (max-width: 480px) {
-    .hero-header {
-        margin-top: 7rem;
-    }
 
     #projects,
     #skills,
@@ -514,9 +502,6 @@
         margin-top: var(--mobile-section-top-space);
     }
 
-    #all-projects {
-        margin-top: var(--mobile-page-top-space);
-    }
 
     .container {
         padding-inline: 1rem;
@@ -590,8 +575,8 @@
     }
 
     .hero-header .name-pronounce-btn {
-        width: 2rem;
-        height: 2rem;
+        width: 1.55rem;
+        height: 1.55rem;
         align-self: center;
         font-size: 0.92rem;
         margin-top: 0;

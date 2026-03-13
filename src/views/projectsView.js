@@ -1,4 +1,4 @@
-import { projects } from "../data/projectsStore"
+import { getProjects } from "../data/projectsStore"
 import { createNav } from "../components/nav"
 import { createFooter } from "../components/footer"
 
@@ -20,7 +20,7 @@ function createCards(list) {
         .join("")
 }
 
-function createFilterButtons() {
+function createFilterButtons(projects) {
     const labels = [...new Set(
         projects
             .map((project) => String(project.label || "").trim())
@@ -36,7 +36,7 @@ function createFilterButtons() {
     ].join("")
 }
 
-function getFilteredProjects(activeFilter, searchText) {
+function getFilteredProjects(projects, activeFilter, searchText) {
     const normalizedSearch = searchText.trim().toLowerCase()
 
     return projects.filter((project) => {
@@ -68,6 +68,8 @@ function renderProjects(list, grid, counter) {
 }
 
 export function createProjectView() {
+    const projects = getProjects()
+
     return `
         ${createNav()}
         <section id="all-projects">
@@ -84,7 +86,7 @@ export function createProjectView() {
                         placeholder="Search by title, tech, or description"
                     />
                     <div class="projects-filters" id="projectsFilters">
-                        ${createFilterButtons()}
+                        ${createFilterButtons(projects)}
                     </div>
                 </div>
                 <p class="projects-count" id="projectsCount">${projects.length} projects</p>
@@ -108,6 +110,7 @@ export function initProjectView() {
 
     if (!grid || !counter || !search || !filters) return
 
+    const projects = getProjects()
     let activeFilter = "all"
     let searchText = ""
     let inputDebounce = 0
@@ -126,7 +129,7 @@ export function initProjectView() {
     }
 
     const applyFilters = () => {
-        const filteredProjects = getFilteredProjects(activeFilter, searchText)
+        const filteredProjects = getFilteredProjects(projects, activeFilter, searchText)
         renderProjects(filteredProjects, grid, counter)
     }
 

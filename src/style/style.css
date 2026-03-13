@@ -18,6 +18,8 @@
 html {
   scroll-padding-top: calc(var(--nav-height) + 0.75rem);
   overflow-x: hidden;
+  scrollbar-color: var(--color-primary) #111113;
+  scrollbar-width: thin;
 }
 
 *,
@@ -33,9 +35,36 @@ body, #app {
   overflow-x: hidden;
 }
 
-html {
+#app section {
+  overflow-x: hidden;
+}
+
+body {
   scrollbar-color: var(--color-primary) #111113;
   scrollbar-width: thin;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0.72rem;
+  height: 0.72rem;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: #111113;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 999px;
+  border: 2px solid #111113;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-hover);
 }
 
 *::-webkit-scrollbar {

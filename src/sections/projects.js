@@ -1,8 +1,8 @@
 import { createProjectCard } from "../components/projectCard"
-import { projects } from "../data/projectsStore"
+import { getFeaturedProjects } from "../data/projectsStore"
 
 export function createProjects() {
-    const featuredProjects = projects.filter(project => project.featured)
+    const featuredProjects = getFeaturedProjects(4)
     const featuredCardsHtml = featuredProjects.map(project => createProjectCard(project)).join("")
 
     return `
