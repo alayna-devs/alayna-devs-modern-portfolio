@@ -1,3 +1,13 @@
+/* Shared responsive tokens */
+:root {
+    --mobile-section-top-space: 8rem;
+    --mobile-page-top-space: 7rem;
+    --tablet-text-btn-pad-y: 0.24rem;
+    --tablet-text-btn-pad-x: 0.82rem;
+    --mobile-text-btn-pad-y: 0.2rem;
+    --mobile-text-btn-pad-x: 0.74rem;
+}
+
 /* Desktop/Laptop (1360px and below) */
 @media (max-width: 1360px) {
     .footer-top {
@@ -223,11 +233,11 @@
     #education,
     #contacts,
     footer {
-        margin-top: 8rem;
+        margin-top: var(--mobile-section-top-space);
     }
 
     #all-projects {
-        margin-top: 7rem;
+        margin-top: var(--mobile-page-top-space);
     }
 
     .container {
@@ -302,7 +312,7 @@
     }
 
     #project-details .details-title {
-        font-size: calc(clamp(1.9rem, 8vw, 2.8rem) + 1rem);
+        font-size: calc(clamp(1.9rem, 8vw, 2.8rem) + 0.75rem);
     }
 
     #project-details .project-details-div {
@@ -423,7 +433,7 @@
     .contact-link-btn,
     .edu-view-link {
         font-size: 0.9rem;
-        padding: 0.24rem 0.82rem;
+        padding: var(--tablet-text-btn-pad-y) var(--tablet-text-btn-pad-x);
     }
 
     .projects-btn {
@@ -460,11 +470,11 @@
     #education,
     #contacts,
     footer {
-        margin-top: 8rem;
+        margin-top: var(--mobile-section-top-space);
     }
 
     #all-projects {
-        margin-top: 7rem;
+        margin-top: var(--mobile-page-top-space);
     }
 
     .container {
@@ -486,7 +496,7 @@
     }
 
     #project-details .details-title {
-        font-size: calc(clamp(1.6rem, 8vw, 2.15rem) + 0.9rem);
+        font-size: calc(clamp(1.6rem, 8vw, 2.15rem) + 0.65rem);
         white-space: normal;
     }
 
@@ -690,7 +700,7 @@
     .edu-view-link,
     .contact-link-btn {
         font-size: 0.84rem;
-        padding: 0.2rem 0.74rem;
+        padding: var(--mobile-text-btn-pad-y) var(--mobile-text-btn-pad-x);
     }
 
     .projects-btn {

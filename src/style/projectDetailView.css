@@ -145,8 +145,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: clamp(2.8rem, 3vw, 3.2rem);
-    height: clamp(2.8rem, 3vw, 3.2rem);
+    width: clamp(2.5rem, 2.75vw, 2.9rem);
+    height: clamp(2.5rem, 2.75vw, 2.9rem);
     border-radius: 999px;
     border: 1px solid rgba(201, 35, 81, 0.55);
     background: var(--icon-btn-bg);
@@ -185,7 +185,7 @@
 }
 
 .project-nav-btn span {
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1;
 }
 
