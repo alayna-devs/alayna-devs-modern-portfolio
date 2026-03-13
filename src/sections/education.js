@@ -55,17 +55,34 @@ export function initEducationSection() {
 
         if (!grid || !leftBtn || !rightBtn) return
 
-        const getStep = () => Math.max(Math.floor(grid.clientWidth * 0.92), 240)
+        const getMaxScroll = () => Math.max(0, grid.scrollWidth - grid.clientWidth)
+        const getStep = () => {
+            const firstCard = grid.querySelector(".edu-card")
+            if (!firstCard) return Math.max(240, Math.floor(grid.clientWidth * 0.82))
+
+            const cardWidth = firstCard.getBoundingClientRect().width
+            const computed = window.getComputedStyle(grid)
+            const rawGap = computed.columnGap || computed.gap || "0"
+            const parsedGap = Number.parseFloat(rawGap)
+            const gap = Number.isFinite(parsedGap) ? parsedGap : 0
+
+            return Math.max(1, Math.round(cardWidth + gap))
+        }
+
+        const clampScrollLeft = (value) => {
+            return Math.min(getMaxScroll(), Math.max(0, value))
+        }
 
         const updateButtons = () => {
-            const maxScroll = Math.max(0, grid.scrollWidth - grid.clientWidth)
+            const maxScroll = getMaxScroll()
             const hasOverflow = maxScroll > SCROLL_EPSILON
+            const currentLeft = clampScrollLeft(grid.scrollLeft)
 
             leftBtn.hidden = !hasOverflow
             rightBtn.hidden = !hasOverflow
 
-            leftBtn.disabled = !hasOverflow || grid.scrollLeft <= SCROLL_EPSILON
-            rightBtn.disabled = !hasOverflow || grid.scrollLeft >= maxScroll - SCROLL_EPSILON
+            leftBtn.disabled = !hasOverflow || currentLeft <= SCROLL_EPSILON
+            rightBtn.disabled = !hasOverflow || currentLeft >= maxScroll - SCROLL_EPSILON
         }
 
         let scrollRaf = 0
@@ -78,11 +95,16 @@ export function initEducationSection() {
         }
 
         const handleLeft = () => {
-            grid.scrollBy({ left: -getStep(), behavior: "smooth" })
+            const currentLeft = clampScrollLeft(grid.scrollLeft)
+            const targetLeft = clampScrollLeft(currentLeft - getStep())
+            grid.scrollTo({ left: targetLeft, behavior: "smooth" })
         }
 
         const handleRight = () => {
-            grid.scrollBy({ left: getStep(), behavior: "smooth" })
+            const currentLeft = clampScrollLeft(grid.scrollLeft)
+            const targetLeft = clampScrollLeft(currentLeft + getStep())
+            if (targetLeft <= currentLeft + SCROLL_EPSILON) return
+            grid.scrollTo({ left: targetLeft, behavior: "smooth" })
         }
 
         grid.addEventListener("scroll", handleScroll, { passive: true })
