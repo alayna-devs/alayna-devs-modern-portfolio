@@ -17,7 +17,7 @@
 
 html {
   scroll-padding-top: calc(var(--nav-height) + 0.75rem);
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 *,
@@ -256,11 +256,16 @@ button {
 
 .scroll-toggle-btn {
   position: fixed;
-  right: calc(clamp(1.35rem, 2.8vw, 2.2rem) + 1rem);
-  bottom: calc(clamp(1.35rem, 3vw, 2.2rem) + 1rem);
+  right: clamp(2.25rem, 4vw, 3.2rem);
+  bottom: clamp(2.25rem, 4vw, 3.2rem);
   z-index: 4;
   width: clamp(2.5rem, 2.75vw, 2.9rem);
   height: clamp(2.5rem, 2.75vw, 2.9rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
   border-radius: 999px;
   border: 1px solid rgba(201, 35, 81, 0.55);
   background: var(--icon-btn-bg);
@@ -271,6 +276,7 @@ button {
 
 .scroll-toggle-btn i {
   font-size: 0.9rem;
+  line-height: 1;
 }
 
 .scroll-toggle-btn:hover,

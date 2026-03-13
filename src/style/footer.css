@@ -76,7 +76,7 @@ footer {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-accent);
+    color: var(--color-primary-hover);
     font-size: clamp(1.45rem, 2.1vw, 1.85rem);
     line-height: 1;
     transition: transform 180ms ease, color 180ms ease;

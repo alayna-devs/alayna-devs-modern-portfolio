@@ -1,11 +1,32 @@
 /* Shared responsive tokens */
 :root {
-    --mobile-section-top-space: 8rem;
+    --tablet-section-top-space: 12rem;
+    --mobile-section-top-space: 3rem;
     --mobile-page-top-space: 7rem;
     --tablet-text-btn-pad-y: 0.24rem;
     --tablet-text-btn-pad-x: 0.82rem;
     --mobile-text-btn-pad-y: 0.2rem;
     --mobile-text-btn-pad-x: 0.74rem;
+}
+
+/* Tablet-only corrections (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .hero-header .name-pronounce-btn {
+        width: calc(clamp(2.05rem, 2.45vw, 2.4rem) + 2rem);
+        height: calc(clamp(2.05rem, 2.45vw, 2.4rem) + 2rem);
+        font-size: calc(clamp(1.18rem, 1.48vw, 1.52rem) + 2rem);
+    }
+
+    .projects-body,
+    .skills-body,
+    .current-title,
+    #education .edu-group h3 {
+        margin-top: var(--space-2);
+    }
+
+    #education .edu-content {
+        gap: var(--space-2);
+    }
 }
 
 /* Desktop/Laptop (1360px and below) */
@@ -37,6 +58,13 @@
 
 /* PC/Tablet (1100px and below) */
 @media (max-width: 1100px) {
+    #projects,
+    #skills,
+    #education,
+    #contacts {
+        margin-top: var(--tablet-section-top-space);
+    }
+
     .container {
         padding-inline: clamp(2rem, 10vw, 8rem);
     }
@@ -64,8 +92,17 @@
 
     .projects-body,
     .skills-body,
+    .current-title,
+    #education .edu-group h3 {
+        font-size: clamp(1.1rem, 2.8vw, 1.35rem);
+        font-weight: var(--fw-sm);
+        line-height: 1.35;
+    }
+
+    .projects-body,
+    .skills-body,
     .current-title {
-        font-size: clamp(1.1rem, 3vw, 1.65rem);
+        margin-top: var(--space-1);
     }
 
     .hero-header .bio-info {
@@ -96,8 +133,8 @@
 
     .hero-header .location-line {
         width: 100%;
-        justify-content: flex-start;
-        text-align: left;
+        justify-content: center;
+        text-align: center;
     }
 
     .hero-header .name-row {
@@ -134,7 +171,7 @@
     }
 
     #education .edu-content {
-        gap: var(--space-5);
+        gap: var(--space-1);
     }
 
     #education .edu-grid {
@@ -153,7 +190,9 @@
 
     #skills .skills-body,
     #skills .current-title {
-        font-size: clamp(1rem, 2.2vw, 1.25rem);
+        font-size: clamp(1.1rem, 2.8vw, 1.35rem);
+        font-weight: var(--fw-sm);
+        line-height: 1.35;
     }
 
     #skills .stacks-grid,
@@ -286,12 +325,14 @@
     .current-title,
     #education .edu-group h3 {
         font-size: clamp(1.1rem, 3.7vw, 1.4rem);
+        font-weight: var(--fw-sm);
+        line-height: 1.35;
     }
 
     .projects-body,
     .skills-body,
     .current-title {
-        margin-top: var(--space-3);
+        margin-top: var(--space-1);
     }
 
     .all-projects-title {
@@ -396,7 +437,7 @@
     }
 
     #education .edu-content {
-        gap: var(--space-3);
+        gap: var(--space-1);
     }
 
     #education .edu-grid {
@@ -549,14 +590,26 @@
     }
 
     .hero-header .name-pronounce-btn {
-        width: 1.55rem;
-        height: 1.55rem;
+        width: 2rem;
+        height: 2rem;
+        align-self: center;
         font-size: 0.92rem;
         margin-top: 0;
     }
 
     .hero-header .name-row {
-        gap: 0.45rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+    .hero-header .name-pronounce-btn.icon-tooltip::after {
+        left: 50%;
+        transform: translate(-50%, 0.25rem);
+        white-space: normal;
+        width: max-content;
+        max-width: calc(100vw - 2rem);
+        text-align: center;
     }
 
     .hero-header .bio-info {
@@ -571,12 +624,14 @@
     .skills-body,
     .current-title,
     #education .edu-group h3 {
-        font-size: 1.1rem;
-        margin-top: var(--space-2);
+        font-size: 1.15rem;
+        font-weight: var(--fw-sm);
+        line-height: 1.35;
+        margin-top: var(--space-1);
     }
 
     #education .edu-content {
-        gap: var(--space-2);
+        gap: var(--space-1);
     }
 
     #all-projects .projects-count {
