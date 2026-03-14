@@ -14,9 +14,9 @@ export const ctdCert = new URL("../assets/pdfs/AT_CTD_Cert.pdf", import.meta.url
 
 // Education links
 export const googleITPython = "https://www.coursera.org/google-certificates/it-automation-certificate"
-export const ibmIntroWeb = "https://enterprise.edx.org/verizon-skill-forward/course/IBM+CAD101EN"
-export const ibmFrontendReact = "https://enterprise.edx.org/verizon-skill-forward/course/IBM+CAD0210EN"
-export const CS50 = "https://enterprise.edx.org/verizon-skill-forward/course/HarvardX+CS50x"
+export const ibmIntroWeb = "https://www.edx.org/learn/web-development/ibm-introduction-to-web-development-with-html5-css3-and-javascript"
+export const ibmFrontendReact = "https://www.edx.org/learn/react-native/ibm-developing-front-end-apps-with-react"
+export const CS50 = "https://www.edx.org/learn/computer-science/harvard-university-cs50-s-introduction-to-computer-science"
 export const scrumAlliance = "https://bcert.me/bc/html/show-badge.html?b=lbpbarjr"
 
 export const pluralsightProfile = "https://app.pluralsight.com/profile/alayna-devs"

@@ -4,15 +4,7 @@ import { createFooter } from "../components/footer"
 
 import '../style/projectsView.css'
 import { createProjectCard } from "../components/projectCard"
-
-function escapeHtml(value = "") {
-    return String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#39;")
-}
+import { escapeHtml } from "../utils/escapeHtml"
 
 function createCards(list) {
     return list
@@ -20,10 +12,21 @@ function createCards(list) {
         .join("")
 }
 
+function getProjectLabels(project) {
+    const normalize = (value) => String(value || "").trim().replace(/^custom:/i, "").trim()
+
+    if (Array.isArray(project.labels) && project.labels.length) {
+        return project.labels.map((label) => normalize(label)).filter(Boolean)
+    }
+
+    const label = normalize(project.label)
+    return label ? [label] : []
+}
+
 function createFilterButtons(projects) {
     const labels = [...new Set(
         projects
-            .map((project) => String(project.label || "").trim())
+            .flatMap((project) => getProjectLabels(project))
             .filter(Boolean)
     )]
 
@@ -40,7 +43,8 @@ function getFilteredProjects(projects, activeFilter, searchText) {
     const normalizedSearch = searchText.trim().toLowerCase()
 
     return projects.filter((project) => {
-        const matchesFilter = activeFilter === "all" || project.label === activeFilter
+        const projectLabels = getProjectLabels(project)
+        const matchesFilter = activeFilter === "all" || projectLabels.includes(activeFilter)
         if (!matchesFilter) return false
 
         if (!normalizedSearch) return true
@@ -48,7 +52,7 @@ function getFilteredProjects(projects, activeFilter, searchText) {
         const haystack = [
             project.title,
             project.description,
-            project.label,
+            ...projectLabels,
             ...(project.tech || [])
         ].join(" ").toLowerCase()
 

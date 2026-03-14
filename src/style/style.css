@@ -4,7 +4,7 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
+  color-scheme: dark;
   color: var(--color-text);
   background-color: var(--color-bg);
 
@@ -35,11 +35,9 @@ body, #app {
   overflow-x: hidden;
 }
 
-#app section {
-  overflow-x: hidden;
-}
-
 body {
+  --x: 50vw;
+  --y: 50vh;
   scrollbar-color: var(--color-primary) #111113;
   scrollbar-width: thin;
 }
@@ -111,6 +109,12 @@ body.menu-open::before {
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
+  background-image: radial-gradient(
+    100px circle at var(--x) var(--y),
+    rgba(201, 35, 81, 0.24) 0%,
+    rgba(201, 35, 81, 0.12) 35%,
+    rgba(201, 35, 81, 0) 72%
+  );
 }
 
 #matrix-bg.matrix-paused .matrix-digit {
@@ -267,7 +271,7 @@ button {
   line-height: 1;
   white-space: nowrap;
   background: #000;
-  border: 1px solid var(--icon-btn-border-color, rgba(201, 35, 81, 0.45));
+  border: 1px solid var(--icon-btn-border-color);
   color: var(--icon-description-text-color);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
   opacity: 0;

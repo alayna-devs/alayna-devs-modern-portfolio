@@ -1,74 +1,57 @@
-# Personal Portfolio Website
+# Alayna_Devs Portfolio
 
-This is my personal portfolio website built with **Vanilla JavaScript**.  
-The project is currently in progress and actively being improved.
+Personal portfolio site built to showcase engineering work, UI/UX polish, and frontend implementation quality.
+This is not intended to be a reusable template product; it is a living portfolio project.
 
----
+## What This Project Highlights
 
-## 🚀 Overview
+- Featured projects showcase and a dedicated all-projects page
+- Dynamic project details with supabase to display media support (images/video), tech tags, external actions, and more
+- TechStack presentation with current stack, overall stack, and highlights grid
+- Education section to display certifications, programs and academics
+- 3D mouse hover parallax effect on a business card.
+- Router-based single-page navigation without a frontend framework
+- Mobile/tablet/desktop responsive tuning across sections
 
-This portfolio is designed to showcase:
+## Technical Stack
 
-- My projects
-- Education and certifications
-- Skills and technical tools
-- Contacts and much more!
-
----
-
-## 🛠 Tech Stack
-
-- HTML5
-- CSS3 
 - Vanilla JavaScript (ES Modules)
-- Vite (for development)
+- HTML5 + CSS3
+- Supabase
+- Vite (build/dev tooling)
+- Font Awesome + Devicon (iconography)
 
-No frameworks are used in this project.
+## Engineering Patterns Used
 
----
+- Component-style section rendering with reusable card factories
+- Route-aware view composition and disposal cleanup
+- Accessible interaction patterns (keyboard-friendly cards/buttons, semantic headings)
+- Progressive enhancement for motion and responsiveness
+- CSS token usage for spacing, typography, and shared visual consistency
 
-## ✨ Current Features
+## Admin Dashboard
 
-- Custom client-side router
-- Projects filter and search
-- Reusable card rendering function
-- Responsive design improvements in progress
+In addition to this portfolio codebase, the broader project work includes a built admin dashboard using:
 
----
+- React
+- Next.js
+- Supabase
+- Middleware-driven route/session protection
+- Role-aware data flows and authenticated admin operations
 
-## 📦 Setup Instructions
+This portfolio reflects those production-focused frontend and product engineering skills.
 
-Clone the repository:
-
-```bash
-git clone https://github.com/ROM-01/at-portfolio
-```
-
-Install dependencies:
+## Run Locally (Optional)
 
 ```bash
 npm install
-```
-
-Run development server:
-
-```bash
 npm run dev
 ```
 
----
+## Author
 
-## 🚧 Work In Progress
+Built and maintained by Alayna Taylor.
 
-This project is still being developed. Planned improvements include:
+## License
 
-- Improved responsiveness
-- Better image layout consistency
-- UI/UX refinements and styling
-- Deployment setup
-
----
-
-## 👤 Author
-
-Built and maintained by Alayna Taylor
+This project is licensed under the MIT License. See `LICENSE`.

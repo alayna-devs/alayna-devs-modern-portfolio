@@ -8,7 +8,7 @@ export const certs = [
         image: googleLogo,
         title: "Google IT Automation with Python Professional Certificate",
         provider: "Coursera",
-        date: "01/2026 - Present",
+        date: "02/2026",
         status: "In-progress",
         verifyUrl: googleITPython,
         location: "Online"
@@ -18,8 +18,8 @@ export const certs = [
         image: ibmLogo,
         title: "Introduction to Web Development with HTML5, CSS3, and JavaScript",
         provider: "edX",
-        date: "02/2026",
-        status: "Completed",
+        date: "",
+        status: "Upcoming",
         verifyUrl: ibmIntroWeb,
         location: "Online"
     },
@@ -28,7 +28,7 @@ export const certs = [
         image: ibmLogo,
         title: "Developing Front End Apps with React",
         provider: "edX",
-        date: "02/2026",
+        date: "",
         status: "Upcoming",
         verifyUrl: ibmFrontendReact,
         location: "Online"
@@ -39,7 +39,7 @@ export const certs = [
         title: "CS50's Introduction to Computer Science",
         provider: "edX",
         date: "03/2026",
-        status: "Upcoming",
+        status: "In-progress",
         verifyUrl: CS50,
         location: "Online"
     },

@@ -28,6 +28,7 @@ export function initProjectsSection() {
     if (!section) return
 
     const openProjectFromCard = (card) => {
+        if (card?.dataset?.unavailable === "true") return
         const projectId = card?.dataset?.id
         if (!projectId) return
 

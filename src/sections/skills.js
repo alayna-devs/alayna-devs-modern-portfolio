@@ -23,7 +23,7 @@ export function createSkills() {
                         </div>
 
                         <div class="overall-div">
-                            <p class="current-title">Overall Core Stack</p>
+                            <p class="current-title">Overall Tech Stack</p>
                             <div class="stacks-grid">
                                 ${baseStackCardsHtml}
                             </div>

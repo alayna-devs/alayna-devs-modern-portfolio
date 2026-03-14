@@ -1,4 +1,5 @@
 import { router } from "./router"
+import { initializeProjectsStore } from "./data/projectsStore"
 
 let pronunciationAudio = null;
 
@@ -100,14 +101,18 @@ function playNamePronunciation(event) {
     void pronunciationAudio.play().catch(() => {});
 }
 
+async function bootstrapApp() {
+    initMatrixBackground()
+    await initializeProjectsStore()
+    router()
+}
+
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
-        initMatrixBackground();
-        router();
-    });
+        void bootstrapApp()
+    })
 } else {
-    initMatrixBackground();
-    router();
+    void bootstrapApp()
 }
 
 window.addEventListener("popstate", (event) => {
@@ -121,5 +126,9 @@ window.addEventListener("popstate", (event) => {
 });
 document.addEventListener("click", navigate);
 document.addEventListener("click", playNamePronunciation);
+document.addEventListener("mousemove", (event) => {
+    document.body.style.setProperty("--x", `${event.clientX}px`);
+    document.body.style.setProperty("--y", `${event.clientY}px`);
+});
 
 

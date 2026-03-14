@@ -1,7 +1,8 @@
 /* Shared responsive tokens */
 :root {
-    --tablet-section-top-space: 12rem;
-    --mobile-section-top-space: 9rem;
+    --tablet-section-top-space: 8rem;
+    --mobile-section-top-space: 7rem;
+    --mobile-page-top-space: 7rem;
     --tablet-text-btn-pad-y: 0.24rem;
     --tablet-text-btn-pad-x: 0.82rem;
     --mobile-text-btn-pad-y: 0.2rem;
@@ -25,6 +26,14 @@
     .footer-bottom h2 {
         max-width: 100%;
         white-space: normal;
+    }
+
+    #projects,
+    #skills,
+    #education,
+    #contacts,
+    footer {
+        margin-top: 9rem;
     }
 }
 
@@ -142,11 +151,7 @@
     #project-details .project-details-div {
         grid-template-columns: 1fr;
         gap: var(--space-3);
-    }
-
-    #project-details .details-media {
-        min-height: 300px;
-        max-height: 460px;
+        padding-inline: 1rem;
     }
 
     #education .edu-content {
@@ -240,6 +245,33 @@
     }
 }
 
+@media (max-width: 1100px) and (orientation: landscape) and (max-height: 900px) {
+    :root {
+        --nav-height: 4.2rem;
+    }
+
+    .logo a {
+        font-size: clamp(1.1rem, 2.1vw, 1.45rem);
+    }
+
+    .social-links a,
+    .menu-toggle {
+        width: clamp(2.2rem, 3.1vh, 2.45rem);
+        height: clamp(2.2rem, 3.1vh, 2.45rem);
+    }
+
+    .bars-icon {
+        font-size: 1.02rem;
+    }
+
+    .hero-header .name-pronounce-btn {
+        width: clamp(1.7rem, 2.2vw, 2rem);
+        height: clamp(1.7rem, 2.2vw, 2rem);
+        font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+        margin-top: 0.1rem;
+    }
+}
+
 /* Tablet-specific project detail tuning (769px - 1100px) */
 @media (min-width: 769px) and (max-width: 1100px) {
     #project-details .details-title {
@@ -258,6 +290,10 @@
 
 /* Tablet (768px and below) */
 @media (max-width: 768px) {
+    .hero-header {
+        margin-top: 7rem;
+    }
+
     #projects,
     #skills,
     #education,
@@ -349,11 +385,6 @@
 
     #project-details .project-details-div {
         gap: 3rem;
-    }
-
-    #project-details .details-media {
-        min-height: 260px;
-        max-height: 380px;
     }
 
     #project-details .details-action {
@@ -527,18 +558,14 @@
     }
 
     #project-details .project-details-div {
-        padding: calc(var(--space-2) + 1rem);
+        padding-block: calc(var(--space-2) + 1rem);
+        padding-inline: 1rem;
         gap: 3rem;
     }
 
     #project-details .details-chip,
     #project-details .details-tech-item {
         font-size: 0.68rem;
-    }
-
-    #project-details .details-media {
-        min-height: 210px;
-        max-height: 300px;
     }
 
     #project-details .details-action {
@@ -783,14 +810,3 @@
     }
 }
 
-@media (prefers-color-scheme: light) {
-    :root {
-        color: #213547;
-        background-color: #ffffff;
-    }
-
-    .app-btn,
-    .link-button {
-        background-color: #f9f9f9;
-    }
-}

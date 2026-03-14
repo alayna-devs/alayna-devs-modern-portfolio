@@ -26,7 +26,7 @@ export function createHeader() {
                             </button>
                         </div>
                         <div class="title-info">Software Engineer</div>
-                        <p class="bio-info">Computer Science student focused on full-stack web development, building responsive applications while strengthening foundations in React, JavaScript, Express.js, and PostgreSQL.</p>
+                        <p class="bio-info">Computer Science student focused on full-stack web development, building responsive applications while strengthening foundations in React, TailwindCSS, JavaScript, Express.js, and PostgreSQL.</p>
                         <a class="github-btn app-btn link-button" href="${GITHUB}" target="_blank" rel="noopener noreferrer">View My GitHub</a>
                     </div>
 

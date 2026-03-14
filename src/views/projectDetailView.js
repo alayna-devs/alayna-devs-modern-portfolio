@@ -1,20 +1,11 @@
 import { getProjects } from "../data/projectsStore"
-import { projectPlaceholder } from "../data/images"
 import { openNewTab } from "../utils/utils"
 
 import "../style/projectDetailView.css"
 import { createNav } from "../components/nav"
 import { createFooter } from "../components/footer"
 import { create404View } from "./404View"
-
-function escapeHtml(value = "") {
-    return String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#39;")
-}
+import { escapeHtml } from "../utils/escapeHtml"
 
 function isImageUrl(value = "") {
     return /\.(avif|webp|png|jpe?g|gif|svg)([?#].*)?$/i.test(String(value))
@@ -47,7 +38,7 @@ function getProjectMediaItems(project) {
     if (isImageUrl(cover)) return [{ type: "image", src: cover }]
     if (isVideoUrl(cover)) return [{ type: "video", src: cover }]
 
-    return [{ type: "image", src: projectPlaceholder }]
+    return []
 }
 
 function renderMediaItem(media, index, title) {
@@ -82,6 +73,22 @@ function renderMediaItem(media, index, title) {
     `
 }
 
+function getProjectLabels(project) {
+    if (Array.isArray(project.labels) && project.labels.length) {
+        return project.labels
+            .map((label) => String(label || "").trim())
+            .filter(Boolean)
+    }
+
+    const singleLabel = String(project.label || "").trim()
+    if (!singleLabel) return []
+
+    return singleLabel
+        .split(",")
+        .map((label) => label.trim())
+        .filter(Boolean)
+}
+
 export function createProjectDetailView(id) {
     const projects = getProjects()
     const projectIndex = projects.findIndex((p) => p.id === id)
@@ -94,14 +101,15 @@ export function createProjectDetailView(id) {
     }
 
     const title = escapeHtml(project.title || "Project")
-    const date = escapeHtml(String(project.date || "").trim())
-    const status = escapeHtml(String(project.status || "").trim())
+    const date = String(project.date || "").trim()
+    const status = String(project.status || "").trim()
     const description = escapeHtml(String(project.description || "").trim() || "No project description has been added yet.")
-    const label = escapeHtml(String(project.label || "").trim())
+    const labels = getProjectLabels(project)
     const techItems = Array.isArray(project.tech)
         ? project.tech.map((item) => String(item || "").trim()).filter(Boolean).map(escapeHtml)
         : []
     const mediaItems = getProjectMediaItems(project)
+    const hasMedia = mediaItems.length > 0
 
     const rawGithubUrl = String(project.github || "").trim()
     const rawLiveUrl = String(project.live || "").trim()
@@ -110,17 +118,26 @@ export function createProjectDetailView(id) {
     const githubUrl = escapeHtml(rawGithubUrl)
     const liveUrl = escapeHtml(rawLiveUrl)
 
+    const labelChip = labels.length
+        ? `<span class="details-chip">${
+            labels
+                .map((label) => escapeHtml(label))
+                .join(` <span class="details-chip-separator" aria-hidden="true">•</span> `)
+        }</span>`
+        : ""
+    const metaChipValues = [status, date].filter(Boolean)
     const metaChips = [
-        `<span class="details-chip${label ? "" : " details-chip--ghost"}">${label || "Label"}</span>`,
-        `<span class="details-chip${status ? "" : " details-chip--ghost"}">${status || "Status"}</span>`,
-        `<span class="details-chip${date ? "" : " details-chip--ghost"}">${date || "Date"}</span>`
+        labelChip,
+        ...metaChipValues.map((value) => `<span class="details-chip">${escapeHtml(value)}</span>`)
     ].join("")
 
     const techHtml = techItems.length
         ? techItems.map((item) => `<span class="details-tech-item">${item}</span>`).join("")
         : `<span class="details-tech-empty">No tech stack listed.</span>`
 
-    const mediaHtml = mediaItems.map((media, index) => renderMediaItem(media, index, title)).join("")
+    const mediaHtml = hasMedia
+        ? mediaItems.map((media, index) => renderMediaItem(media, index, title)).join("")
+        : ""
 
     const actionButtonsHtml = [
         hasGithubUrl
@@ -142,12 +159,10 @@ export function createProjectDetailView(id) {
             <div class="container">
                 <a class="link-button go-back-link" href="/projects" data-go-back data-link>Go Back</a>
                 <div class="project-details-shell">
-                    <div class="project-details-div">
+                    <div class="project-details-div${hasMedia ? "" : " project-details-div--no-media"}">
                         <div class="details-info-div">
                             <h1 class="details-title">${title}</h1>
-                            <div class="details-meta">
-                                ${metaChips}
-                            </div>
+                            ${metaChips ? `<div class="details-meta">${metaChips}</div>` : ""}
                             <p class="details-desc">${description}</p>
                             <div class="details-tech-list">
                                 ${techHtml}
@@ -155,9 +170,7 @@ export function createProjectDetailView(id) {
                             ${actionButtonsHtml ? `<div class="details-actions">${actionButtonsHtml}</div>` : ""}
                         </div>
 
-                        <div class="details-media-div">
-                            ${mediaHtml}
-                        </div>
+                        ${hasMedia ? `<div class="details-media-div">${mediaHtml}</div>` : ""}
 
                     </div>
 

@@ -110,7 +110,7 @@ export function initMenu() {
 
     let lastScrollY = window.scrollY
     const topBuffer = 16
-    const minDelta = 6
+    const minDelta = window.matchMedia("(max-width: 1100px)").matches ? 2 : 6
     let isNavVisible = true
     let scrollRaf = 0
     const setNavVisible = (visible) => {

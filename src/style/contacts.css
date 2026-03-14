@@ -18,6 +18,8 @@
     gap: clamp(1.25rem, 2.5vw, 2rem);
     width: min(770px, 100%);
     background: linear-gradient(150deg, rgba(176, 34, 82, 0.54) 18%, rgba(9, 1, 5, 0.54) 100%);
+    background-clip: padding-box;
+    border: 1px solid rgba(255, 133, 170, 0.62);
     color: var(--icon-btn-hover-color);
     box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.4);
     margin: auto;

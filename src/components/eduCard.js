@@ -1,13 +1,5 @@
 import { defaultImg } from "../data/images"
-
-function escapeHtml(value = "") {
-    return String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#39;")
-}
+import { escapeHtml } from "../utils/escapeHtml"
 
 function toStatusClass(status = "") {
     return String(status).trim().toLowerCase().replace(/\s+/g, "-")

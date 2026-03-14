@@ -1,5 +1,5 @@
 import { createIcon } from "../components/fa_icons"
-import { CODEWARS, GITHUB, HACKERRANK, LEETCODE, LINKEDIN, RESUME } from "../data/links"
+import { CODEWARS, GITHUB, HACKERRANK, LEETCODE, LINKEDIN, RESUME, YOUTUBE, DEV } from "../data/links"
 
 export function createSideMenu() {
     return `
@@ -24,6 +24,8 @@ export function createSideMenu() {
                 <ul class="side-menu-links">
                     <li><a href="${LINKEDIN}" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                     <li><a href="${GITHUB}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    <li><a href="${YOUTUBE}" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+                    <li><a href="${DEV}" target="_blank" rel="noopener noreferrer">DEV</a></li>
                     <li><a href="${RESUME}" target="_blank" rel="noopener noreferrer">Resume (PDF)</a></li>
                 </ul>
             </div>

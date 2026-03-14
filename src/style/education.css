@@ -78,14 +78,8 @@
 .grid-btn-left:focus-visible,
 .grid-btn-right:hover,
 .grid-btn-right:focus-visible {
-    transform: translateY(-50%);
     border-color: rgba(255, 133, 170, 0.95);
     box-shadow: 0 14px 30px rgba(201, 35, 81, 0.34), 0 0 0 3px rgba(201, 35, 81, 0.22);
-}
-
-.grid-btn-left:active,
-.grid-btn-right:active {
-    transform: translateY(-50%);
 }
 
 .grid-btn-left:disabled,
@@ -119,6 +113,7 @@
     scroll-snap-align: start;
     color: var(--color-text);
     transition: transform 220ms ease, box-shadow 220ms ease, background 260ms ease, color 220ms ease;
+    will-change: transform;
 }
 
 .edu-image {
@@ -213,7 +208,7 @@
 
 .edu-card:hover,
 .edu-card:focus-within {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-8px);
     background: var(--edu-hover-bg);
     color: var(--edu-hover-text);
     box-shadow: 0 18px 34px rgba(0, 0, 0, 0.42);
@@ -231,6 +226,11 @@
 .edu-card:hover a,
 .edu-card:focus-within a {
     color: var(--edu-hover-link);
+}
+
+.edu-card:hover .edu-view-link,
+.edu-card:focus-within .edu-view-link {
+    background: rgba(10, 10, 10, 0.7);
 }
 
 .edu-card:hover .edu-status,

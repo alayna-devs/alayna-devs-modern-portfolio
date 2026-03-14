@@ -124,7 +124,7 @@
     line-height: 1;
     white-space: nowrap;
     background: #000;
-    border: 1px solid var(--icon-btn-border-color, rgba(201, 35, 81, 0.45));
+    border: 1px solid var(--icon-btn-border-color);
     color: var(--icon-description-text-color);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
     opacity: 0;

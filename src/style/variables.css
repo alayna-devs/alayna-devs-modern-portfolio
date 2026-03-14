@@ -26,6 +26,7 @@
     /* SHARED ICON BUTTON EFFECT */
     --icon-btn-size: 2.75rem;
     --icon-btn-border: 1px solid rgba(201, 35, 81, 0.45);
+    --icon-btn-border-color: rgba(201, 35, 81, 0.45);
     --icon-btn-bg: rgba(0, 0, 0, 0.4);
     --icon-btn-color: var(--color-accent);
     --icon-btn-shadow: 0 10px 22px rgba(201, 35, 81, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
