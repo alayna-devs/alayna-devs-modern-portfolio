@@ -206,6 +206,7 @@
     .footer-top {
         flex-direction: column;
         gap: var(--space-4);
+        align-items: center;
     }
 
     .footer-brand,
@@ -222,6 +223,8 @@
     .footer-grid {
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: var(--space-3);
+        justify-items: center;
+        text-align: center;
     }
 
     .footer-contacts-icons {
@@ -395,7 +398,8 @@
 
     .card-label,
     .card-tech-item {
-        font-size: 0.72rem;
+        font-size: clamp(0.62rem, 2.2vw, 0.72rem);
+        padding: 0.28rem 0.58rem;
     }
 
     #skills .stacks-grid,
@@ -493,6 +497,7 @@
 
     .footer-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
         justify-items: center;
         text-align: center;
     }
@@ -641,6 +646,12 @@
         grid-template-columns: minmax(0, 1fr);
     }
 
+    #all-projects .all-projects-grid .card-label,
+    #all-projects .all-projects-grid .card-tech-item {
+        font-size: clamp(0.52rem, 2.2vw, 0.64rem);
+        padding: 0.2rem 0.4rem;
+    }
+
     .card-title {
         max-width: 100%;
         font-size: clamp(0.95rem, 4.8vw, 1.15rem);
@@ -649,8 +660,8 @@
 
     .card-label,
     .card-tech-item {
-        padding: 0.25rem 0.5rem;
-        font-size: 0.68rem;
+        padding: 0.2rem 0.45rem;
+        font-size: clamp(0.52rem, 2.5vw, 0.65rem);
     }
 
     #skills .stacks-grid,
@@ -736,16 +747,26 @@
 
     .footer-grid-container {
         gap: var(--space-3);
-        padding-inline: 0.75rem;
+        padding-inline: 1rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .footer-top {
+        width: 100%;
+    }
+
+    .footer-grid {
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-items: stretch;
+        gap: var(--space-3);
     }
 
     .footer-contacts-icons {
         gap: var(--space-1);
         flex-wrap: wrap;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
     }
 
     .app-btn,

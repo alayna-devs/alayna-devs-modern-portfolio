@@ -113,7 +113,7 @@
     border: 1px solid color-mix(in srgb, var(--color-primary) 78%, white 4%);
     background: linear-gradient(to bottom, rgba(7, 7, 8, 0.96), rgba(20, 9, 14, 0.92));
     color: color-mix(in srgb, var(--color-accent) 84%, white 16%);
-    font-size: var(--fs-small);
+    font-size: clamp(0.58rem, 2.2vw, var(--fs-small));
     letter-spacing: 0.02em;
     text-transform: uppercase;
     font-weight: var(--fw-md);

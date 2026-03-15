@@ -1,4 +1,5 @@
 import { projectPlaceholder } from "./images"
+import { addPreconnect, preloadImages } from "../utils/imagePreload"
 import { createClient } from "@supabase/supabase-js"
 
 const FEATURED_LIMIT = 4
@@ -183,6 +184,11 @@ export async function initializeProjectsStore() {
 
         const mappedProjects = normalizeProjectList((data || []).map((record, index) => mapSupabaseProject(record, index)))
         projectsCache = mappedProjects
+
+        addPreconnect(SUPABASE_URL)
+        const featured = getFeaturedProjects(FEATURED_LIMIT)
+        const coverUrls = featured.map((p) => p.cover).filter(Boolean)
+        preloadImages(coverUrls, 6)
     } catch {
         projectsCache = []
     }
