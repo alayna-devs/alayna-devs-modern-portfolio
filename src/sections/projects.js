@@ -23,6 +23,18 @@ export function createProjects() {
     `
 }
 
+/**
+ * Updates the featured projects grid with fresh data from the store.
+ * Call after initializeProjectsStore() to avoid full re-render (which would restart hero animation).
+ */
+export function updateProjectsGrid() {
+    const grid = document.getElementById("projectsGrid")
+    if (!grid) return
+
+    const featuredProjects = getFeaturedProjects(4)
+    grid.innerHTML = featuredProjects.map(project => createProjectCard(project)).join("")
+}
+
 export function initProjectsSection() {
     const section = document.getElementById("projects")
     if (!section) return

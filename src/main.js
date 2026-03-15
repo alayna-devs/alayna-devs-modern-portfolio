@@ -1,5 +1,6 @@
 import { router } from "./router"
 import { initializeProjectsStore } from "./data/projectsStore"
+import { updateProjectsGrid } from "./sections/projects"
 
 let pronunciationAudio = null;
 
@@ -101,13 +102,24 @@ function playNamePronunciation(event) {
     void pronunciationAudio.play().catch(() => {});
 }
 
+function isHomePath(pathname) {
+    const p = (pathname || window.location.pathname || "").replace(/\/$/, "") || "/"
+    return p === "/" || p === "/index.html"
+}
+
 async function bootstrapApp() {
     initMatrixBackground()
     router()
 
     // Hydrate projects after first paint so home animations start immediately.
     await initializeProjectsStore()
-    router()
+
+    // Only update projects grid in place when on home—avoids full re-render that restarts hero animation.
+    if (isHomePath()) {
+        updateProjectsGrid()
+    } else {
+        router()
+    }
 }
 
 if (document.readyState === "loading") {
