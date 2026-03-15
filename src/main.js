@@ -30,7 +30,7 @@ function initMatrixBackground() {
 
         digit.className = `matrix-digit ${depth}`;
         digit.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
-        digit.style.left = `${(Math.random() * 100).toFixed(2)}%`;
+        digit.style.left = `${(Math.random() * 110 - 5).toFixed(2)}vw`;
         digit.style.animationDelay = `${(-Math.random() * 18).toFixed(2)}s`;
         digit.style.animationDuration = `${(depth === "near" ? 10 : 16) + Math.random() * 8}s`;
         digit.style.setProperty("--drift-x", `${drift}px`);
