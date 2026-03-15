@@ -7,9 +7,11 @@ export const YOUTUBE = "https://www.youtube.com/@alayna-devs"
 export const CODEWARS = "https://www.codewars.com/users/alayna_devs"
 export const HACKERRANK = "https://www.hackerrank.com/profile/alayna_devs"
 export const DEV = "https://dev.to/alayna_devs"
+export const ROADMAP = "https://roadmap.sh/u/alaynadevs"
+
 
 // PDFs
-export const RESUME = new URL("../assets/pdfs/AT_Tech_Resume.pdf", import.meta.url).href
+export const RESUME = new URL("../assets/pdfs/AT_Web_Dev_Resume.pdf", import.meta.url).href
 export const ctdCert = new URL("../assets/pdfs/AT_CTD_Cert.pdf", import.meta.url).href
 
 // Education links

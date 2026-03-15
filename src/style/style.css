@@ -18,7 +18,7 @@
 html {
   scroll-padding-top: calc(var(--nav-height) + 0.75rem);
   overflow-x: hidden;
-  scrollbar-color: var(--color-primary) #111113;
+  scrollbar-color: var(--color-primary) var(--color-scrollbar-track);
   scrollbar-width: thin;
 }
 
@@ -38,31 +38,8 @@ body, #app {
 body {
   --x: 50vw;
   --y: 50vh;
-  scrollbar-color: var(--color-primary) #111113;
+  scrollbar-color: var(--color-primary) var(--color-scrollbar-track);
   scrollbar-width: thin;
-}
-
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  width: 0.72rem;
-  height: 0.72rem;
-}
-
-html::-webkit-scrollbar-track,
-body::-webkit-scrollbar-track {
-  background: #111113;
-}
-
-html::-webkit-scrollbar-thumb,
-body::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
-  border-radius: 999px;
-  border: 2px solid #111113;
-}
-
-html::-webkit-scrollbar-thumb:hover,
-body::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-hover);
 }
 
 *::-webkit-scrollbar {
@@ -71,13 +48,13 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 *::-webkit-scrollbar-track {
-  background: #111113;
+  background: var(--color-scrollbar-track);
 }
 
 *::-webkit-scrollbar-thumb {
   background: var(--color-primary);
   border-radius: 999px;
-  border: 2px solid #111113;
+  border: 2px solid var(--color-scrollbar-track);
 }
 
 *::-webkit-scrollbar-thumb:hover {
@@ -111,9 +88,9 @@ body.menu-open::before {
   z-index: 0;
   background-image: radial-gradient(
     100px circle at var(--x) var(--y),
-    rgba(201, 35, 81, 0.24) 0%,
-    rgba(201, 35, 81, 0.12) 35%,
-    rgba(201, 35, 81, 0) 72%
+    var(--color-primary-a24) 0%,
+    var(--color-primary-a12) 35%,
+    transparent 72%
   );
 }
 
@@ -139,7 +116,7 @@ body.menu-open::before {
   color: var(--color-primary);
   font-family: "Fira Code", "JetBrains Mono", "Consolas", monospace;
   font-weight: 500;
-  text-shadow: 0 0 10px rgba(201, 35, 81, 0.4);
+  text-shadow: 0 0 10px var(--color-primary-a40);
   transform: translate3d(0, -10vh, 0);
   will-change: transform, opacity;
   animation-name: matrix-fall;
@@ -226,12 +203,16 @@ button {
   transition: transform 180ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
 
-.project-card,
 .stack-card,
 .highlights-card,
 .edu-card,
 .contact-card {
   border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.go-back-link {
+  display: inline-flex;
+  margin-bottom: var(--space-3);
 }
 .app-btn:hover,
 .app-btn:focus-visible,
@@ -240,12 +221,12 @@ button {
   transform: translateY(-2px);
   color: var(--color-accent);
   border-color: rgba(255, 133, 170, 0.95);
-  box-shadow: 0 6px 20px rgba(201, 35, 81, 0.28), 0 -8px 22px rgba(201, 35, 81, 0.26), 0 0 0 3px rgba(201, 35, 81, 0.24);
+  box-shadow: 0 6px 20px rgba(201, 35, 81, 0.28), 0 -8px 22px rgba(201, 35, 81, 0.26), 0 0 0 3px var(--color-primary-a24);
 }
 
 .app-btn:focus-visible,
 .link-button:focus-visible {
-  outline: 2px solid rgba(201, 35, 81, 0.5);
+  outline: 2px solid var(--color-primary-a50);
   outline-offset: 2px;
 }
 
@@ -300,10 +281,10 @@ button {
   line-height: 1;
   padding: 0;
   border-radius: 999px;
-  border: 1px solid rgba(201, 35, 81, 0.55);
+  border: 1px solid var(--color-primary-a55);
   background: var(--icon-btn-bg);
   color: var(--color-accent);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(201, 35, 81, 0.18);
+  box-shadow: var(--shadow-card-base);
   cursor: pointer;
 }
 
@@ -315,11 +296,11 @@ button {
 .scroll-toggle-btn:hover,
 .scroll-toggle-btn:focus-visible {
   border-color: rgba(255, 133, 170, 0.95);
-  box-shadow: 0 14px 30px rgba(201, 35, 81, 0.34), 0 0 0 3px rgba(201, 35, 81, 0.22);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .scroll-toggle-btn:focus-visible {
-  outline: 2px solid rgba(201, 35, 81, 0.45);
+  outline: 2px solid var(--color-primary-a45);
   outline-offset: 2px;
 }
 

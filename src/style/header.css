@@ -9,6 +9,10 @@
     column-gap: clamp(var(--space-5), 6vw, var(--space-7));
 }
 
+.hero-header .intro-div > * {
+    min-width: 0;
+}
+
 .hero-header .intro-info-div {
     display: flex;
     flex-direction: column;
@@ -57,7 +61,7 @@
     height: 0.58rem;
     border-radius: var(--radius-cr);
     background: var(--color-primary);
-    box-shadow: 0 0 0.55rem rgba(201, 35, 81, 0.72);
+    box-shadow: 0 0 0.55rem var(--color-primary-a72);
     animation: location-dot-pulse 1.2s ease-in-out infinite;
 }
 
@@ -85,7 +89,7 @@
     overflow-wrap: normal;
     white-space: nowrap;
     margin: 0;
-    text-shadow: 0 0 1.15rem rgba(201, 35, 81, 0.16);
+    text-shadow: 0 0 1.15rem var(--color-primary-a16);
 }
 
 .hero-header .name-pronounce-btn {
@@ -110,11 +114,11 @@
 .hero-header .name-pronounce-btn:focus-visible {
     color: var(--color-primary-hover);
     transform: translateY(-1px);
-    filter: drop-shadow(0 0 0.48rem rgba(201, 35, 81, 0.48));
+    filter: drop-shadow(0 0 0.48rem var(--color-primary-a48));
 }
 
 .hero-header .name-pronounce-btn:focus-visible {
-    outline: 2px solid rgba(201, 35, 81, 0.52);
+    outline: 2px solid var(--color-primary-a52);
     outline-offset: 0.15rem;
     border-radius: var(--radius-sm);
 }
@@ -124,7 +128,7 @@
 }
 
 .hero-header .title-info {
-    font-size: clamp(2.4rem, 3.1vw, 5.2rem);
+    font-size: clamp(2.6rem, 3.4vw, 5.5rem);
     margin-top: var(--space-1);
     color: rgba(255, 255, 255, 0.95);
     letter-spacing: 0.015em;
@@ -146,11 +150,38 @@
 }
 
 .hero-header .intro-photo {
-    width: clamp(30rem, 42vw, 46rem);
-    max-width: 85%;
+    width: clamp(32rem, 44vw, 48rem);
+    max-width: 90%;
     height: auto;
     border-radius: var(--radius-lg);
     border: 2px solid var(--color-primary);
     flex-shrink: 0;
+    transform: translateZ(0);
+    transition: transform 140ms ease-out;
+    will-change: transform;
+}
+
+@media (min-width: 1600px) {
+    .hero-header .intro-div {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        column-gap: clamp(2rem, 3.8vw, 4.5rem);
+    }
+
+    .hero-header .intro-info-div {
+        max-width: 48rem;
+    }
+
+    .hero-header .name-info {
+        font-size: clamp(4.5rem, 5vw, 6.5rem);
+    }
+
+    .hero-header .title-info {
+        font-size: clamp(2.8rem, 3.2vw, 4.5rem);
+    }
+
+    .hero-header .intro-photo {
+        width: clamp(28rem, 38vw, 42rem);
+        max-width: 90%;
+    }
 }
 

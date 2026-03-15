@@ -97,13 +97,17 @@
 .menu-toggle:focus-visible {
     transform: translateY(-2px) scale(1.03);
     border-color: var(--color-accent);
-    color: var(--icon-btn-hover-color);
     box-shadow: var(--icon-btn-hover-shadow);
 }
 
 .social-links a:hover,
 .social-links a:focus-visible {
     color: var(--color-primary-hover);
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
+    color: var(--icon-btn-hover-color);
 }
 
 .social-links a:active,

@@ -1,6 +1,6 @@
 /* Shared responsive tokens */
 :root {
-    --tablet-section-top-space: 8rem;
+    --tablet-section-top-space: 11rem;
     --mobile-section-top-space: 7rem;
     --mobile-page-top-space: 7rem;
     --tablet-text-btn-pad-y: 0.24rem;
@@ -34,13 +34,6 @@
     #contacts,
     footer {
         margin-top: 9rem;
-    }
-}
-
-/* Near desktop transition (1500px and below) */
-@media (max-width: 1500px) {
-    :root {
-        --container-padding: clamp(5.5rem, calc(6vw - 1rem), 6rem);
     }
 }
 
@@ -79,7 +72,6 @@
     }
 
     .projects-body,
-    .skills-body,
     .current-title,
     #education .edu-group h3 {
         font-size: clamp(1.1rem, 2.8vw, 1.35rem);
@@ -88,7 +80,6 @@
     }
 
     .projects-body,
-    .skills-body,
     .current-title {
         margin-top: var(--space-1);
     }
@@ -172,7 +163,6 @@
         gap: var(--space-4);
     }
 
-    #skills .skills-body,
     #skills .current-title {
         font-size: clamp(1.1rem, 2.8vw, 1.35rem);
         font-weight: var(--fw-sm);
@@ -348,7 +338,6 @@
     }
 
     .projects-body,
-    .skills-body,
     .current-title,
     #education .edu-group h3 {
         font-size: clamp(1.1rem, 3.7vw, 1.4rem);
@@ -357,7 +346,6 @@
     }
 
     .projects-body,
-    .skills-body,
     .current-title {
         margin-top: var(--space-1);
     }
@@ -633,7 +621,6 @@
     }
 
     .projects-body,
-    .skills-body,
     .current-title,
     #education .edu-group h3 {
         font-size: 1.15rem;
@@ -772,6 +759,37 @@
 
     .projects-btn {
         margin-top: var(--space-6);
+    }
+}
+
+/* Extra-wide monitors: reduce container side padding */
+@media (min-width: 1600px) {
+    :root {
+        --container-padding: clamp(0.75rem, 1.4vw, 1.5rem);
+    }
+}
+
+/* Prevent footer grid compression */
+@media (max-width: 1700px) {
+    .footer-top {
+        gap: var(--space-3);
+    }
+
+    .footer-brand {
+        width: 44%;
+    }
+
+    .footer-grid {
+        width: 54%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-3);
+    }
+}
+
+/* Near desktop transition (1500px and below) */
+@media (max-width: 1500px) {
+    :root {
+        --container-padding: clamp(1rem, 2.6vw, 2.1rem);
     }
 }
 

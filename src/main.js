@@ -66,7 +66,7 @@ function navigate(event) {
     event.preventDefault();
     history.replaceState({ ...(history.state || {}), scrollY: window.scrollY }, "", window.location.href);
     history.pushState({}, "", href);
-    router();
+    void router();
 
     const hash = link.hash || (href.includes("#") ? href.slice(href.indexOf("#")) : "");
     if (!hash) {
@@ -103,6 +103,9 @@ function playNamePronunciation(event) {
 
 async function bootstrapApp() {
     initMatrixBackground()
+    router()
+
+    // Hydrate projects after first paint so home animations start immediately.
     await initializeProjectsStore()
     router()
 }
@@ -116,7 +119,7 @@ if (document.readyState === "loading") {
 }
 
 window.addEventListener("popstate", (event) => {
-    router();
+    void router();
     const savedScrollY = event.state?.scrollY;
     if (typeof savedScrollY === "number") {
         requestAnimationFrame(() => {
@@ -126,9 +129,19 @@ window.addEventListener("popstate", (event) => {
 });
 document.addEventListener("click", navigate);
 document.addEventListener("click", playNamePronunciation);
-document.addEventListener("mousemove", (event) => {
-    document.body.style.setProperty("--x", `${event.clientX}px`);
-    document.body.style.setProperty("--y", `${event.clientY}px`);
-});
+
+let lastMouseX = 0;
+let lastMouseY = 0;
+let mouseRaf = null;
+document.addEventListener("mousemove", (e) => {
+    lastMouseX = e.clientX;
+    lastMouseY = e.clientY;
+    if (mouseRaf) return;
+    mouseRaf = requestAnimationFrame(() => {
+        mouseRaf = null;
+        document.body.style.setProperty("--x", `${lastMouseX}px`);
+        document.body.style.setProperty("--y", `${lastMouseY}px`);
+    });
+}, { passive: true });
 
 

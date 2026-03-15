@@ -58,10 +58,10 @@
     line-height: 1;
     padding: 0;
     border-radius: 999px;
-    border: 1px solid rgba(201, 35, 81, 0.55);
+    border: 1px solid var(--color-primary-a55);
     background: var(--icon-btn-bg);
     color: var(--color-accent);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(201, 35, 81, 0.18);
+    box-shadow: var(--shadow-card-base);
     cursor: pointer;
     transform: translateY(-50%);
 }
@@ -79,7 +79,7 @@
 .grid-btn-right:hover,
 .grid-btn-right:focus-visible {
     border-color: rgba(255, 133, 170, 0.95);
-    box-shadow: 0 14px 30px rgba(201, 35, 81, 0.34), 0 0 0 3px rgba(201, 35, 81, 0.22);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .grid-btn-left:disabled,

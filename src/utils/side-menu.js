@@ -1,5 +1,5 @@
 import { createIcon } from "../components/fa_icons"
-import { CODEWARS, GITHUB, HACKERRANK, LEETCODE, LINKEDIN, RESUME, YOUTUBE, DEV } from "../data/links"
+import { CODEWARS, GITHUB, HACKERRANK, LEETCODE, LINKEDIN, RESUME, YOUTUBE, DEV, ROADMAP } from "../data/links"
 
 export function createSideMenu() {
     return `
@@ -25,7 +25,6 @@ export function createSideMenu() {
                     <li><a href="${LINKEDIN}" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                     <li><a href="${GITHUB}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     <li><a href="${YOUTUBE}" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-                    <li><a href="${DEV}" target="_blank" rel="noopener noreferrer">DEV</a></li>
                     <li><a href="${RESUME}" target="_blank" rel="noopener noreferrer">Resume (PDF)</a></li>
                 </ul>
             </div>
@@ -33,9 +32,11 @@ export function createSideMenu() {
             <div class="side-menu-group">
                 <h5>Coding Profiles</h5>
                 <ul class="side-menu-links">
+                    <li><a href="${DEV}" target="_blank" rel="noopener noreferrer">DEV</a></li>
                     <li><a href="${LEETCODE}" target="_blank" rel="noopener noreferrer">LeetCode</a></li>
                     <li><a href="${CODEWARS}" target="_blank" rel="noopener noreferrer">Codewars</a></li>
                     <li><a href="${HACKERRANK}" target="_blank" rel="noopener noreferrer">HackerRank</a></li>
+                    <li><a href="${ROADMAP}" target="_blank" rel="noopener noreferrer">Roadmap</a></li>
                 </ul>
             </div>
         </aside>

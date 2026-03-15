@@ -2,11 +2,6 @@
     margin-top: var(--section-space-sm);
 }
 
-.go-back-link {
-    display: inline-flex;
-    margin-bottom: var(--space-3);
-}
-
 .all-projects-title {
     font-size: var(--fs-section-title);
     margin-bottom: var(--space-4);
@@ -33,10 +28,10 @@
 
 .projects-search:focus,
 .projects-search:focus-visible {
-    outline: 2px solid rgba(201, 35, 81, 0.35);
+    outline: 2px solid var(--color-primary-a35);
     outline-offset: 2px;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(201, 35, 81, 0.18);
+    box-shadow: 0 0 0 3px var(--color-primary-a18);
 }
 
 .projects-filters {
@@ -56,10 +51,10 @@
 }
 
 .filter-btn:focus-visible {
-    outline: 2px solid rgba(201, 35, 81, 0.4);
+    outline: 2px solid var(--color-primary-a40);
     outline-offset: 2px;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(201, 35, 81, 0.16);
+    box-shadow: 0 0 0 3px var(--color-primary-a16);
 }
 
 .filter-btn.active {

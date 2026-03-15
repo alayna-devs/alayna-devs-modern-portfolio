@@ -6,7 +6,7 @@
 
     --color-bg: #0c0c0c;
     --color-text: rgba(255, 255, 255, 0.87);
-    --color-primary: #db3261;
+    --color-primary: #db3c69;
     --color-primary-hover: #e6567f;
     --color-accent: #ed88a5;
     --color-accent-border: #591629;
@@ -15,6 +15,37 @@
     --color-surface: #1a1a1a;
     --color-card-overlay: rgba(0, 0, 0, 0.5);
     --color-black: #000;
+    --color-scrollbar-track: #111113;
+
+    /* Primary rgba variants (201, 35, 81) */
+    --color-primary-a12: rgba(201, 35, 81, 0.12);
+    --color-primary-a16: rgba(201, 35, 81, 0.16);
+    --color-primary-a18: rgba(201, 35, 81, 0.18);
+    --color-primary-a20: rgba(201, 35, 81, 0.2);
+    --color-primary-a22: rgba(201, 35, 81, 0.22);
+    --color-primary-a24: rgba(201, 35, 81, 0.24);
+    --color-primary-a34: rgba(201, 35, 81, 0.34);
+    --color-primary-a35: rgba(201, 35, 81, 0.35);
+    --color-primary-a38: rgba(201, 35, 81, 0.38);
+    --color-primary-a40: rgba(201, 35, 81, 0.4);
+    --color-primary-a42: rgba(201, 35, 81, 0.42);
+    --color-primary-a45: rgba(201, 35, 81, 0.45);
+    --color-primary-a48: rgba(201, 35, 81, 0.48);
+    --color-primary-a50: rgba(201, 35, 81, 0.5);
+    --color-primary-a52: rgba(201, 35, 81, 0.52);
+    --color-primary-a55: rgba(201, 35, 81, 0.55);
+    --color-primary-a72: rgba(201, 35, 81, 0.72);
+    --color-primary-a78: rgba(201, 35, 81, 0.78);
+    --color-primary-a85: rgba(201, 35, 81, 0.85);
+
+    /* Shared shadows */
+    --shadow-card-base: 0 12px 24px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--color-primary-a18);
+    --shadow-card-hover: 0 14px 30px var(--color-primary-a34), 0 0 0 3px var(--color-primary-a20);
+    --shadow-glow-42: 0 0 20px var(--color-primary-a42);
+
+    /* Stack/skills card accents */
+    --color-stack-border: rgba(255, 94, 142, 0.9);
+    --color-stack-icon: #ff598b;
 
     /* SHARED SURFACES */
     --surface-nav-bg: linear-gradient(to bottom, rgba(9, 9, 11, 0.92), rgba(13, 14, 16, 0.62));
@@ -25,15 +56,15 @@
 
     /* SHARED ICON BUTTON EFFECT */
     --icon-btn-size: 2.75rem;
-    --icon-btn-border: 1px solid rgba(201, 35, 81, 0.45);
-    --icon-btn-border-color: rgba(201, 35, 81, 0.45);
+    --icon-btn-border: 1px solid var(--color-primary-a45);
+    --icon-btn-border-color: var(--color-primary-a45);
     --icon-btn-bg: rgba(0, 0, 0, 0.4);
     --icon-btn-color: var(--color-accent);
-    --icon-btn-shadow: 0 10px 22px rgba(201, 35, 81, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    --icon-btn-shadow: 0 10px 22px var(--color-primary-a20), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     --icon-btn-hover-color: #ffd4e0;
     --icon-description-text-color: var(--icon-btn-hover-color);
-    --icon-btn-hover-shadow: 0 14px 30px rgba(201, 35, 81, 0.34), 0 0 0 3px rgba(201, 35, 81, 0.2);
-    --icon-btn-active-shadow: 0 8px 14px rgba(201, 35, 81, 0.22);
+    --icon-btn-hover-shadow: var(--shadow-card-hover);
+    --icon-btn-active-shadow: 0 8px 14px var(--color-primary-a22);
 
     /* =========================
         CONTAINER SYSTEM
@@ -70,7 +101,7 @@
     ========================== */
 
     --fs-logo: 2rem;
-    --fs-hero: clamp(5rem, 6vw, 7rem);
+    --fs-hero: clamp(5.25rem, 6.5vw, 7.5rem);
     --fs-title: clamp(3.35rem, 4.25vw, 6rem);
     --fs-title-sm: clamp(1.5rem, 1.5vw, 3rem);
     --fs-body: clamp(1rem, 1.2vw, 2rem);

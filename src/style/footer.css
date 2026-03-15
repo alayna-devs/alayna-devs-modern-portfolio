@@ -58,7 +58,7 @@ footer {
 .footer-brand h2 {
     font-size: clamp(2.45rem, 3.5vw, 3.15rem);
     color: var(--color-primary);
-    text-shadow: 0 0 20px rgba(201, 35, 81, 0.42);
+    text-shadow: var(--shadow-glow-42);
     letter-spacing: 0.02em;
     margin: 0;
 }
@@ -99,7 +99,7 @@ footer {
     line-height: 1;
     white-space: nowrap;
     background: #000;
-    border: 1px solid rgba(201, 35, 81, 0.4);
+    border: 1px solid var(--color-primary-a40);
     color: var(--icon-description-text-color);
     opacity: 0;
     pointer-events: none;
@@ -147,7 +147,7 @@ footer {
 
 .footer-bottom h2 span {
     color: var(--color-primary);
-    text-shadow: 0 0 20px rgba(201, 35, 81, 0.42);
+    text-shadow: var(--shadow-glow-42);
 }
 
 .footer-bottom {

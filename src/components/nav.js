@@ -55,6 +55,28 @@ export function initMenu() {
     }
     menu.setAttribute("data-detached", "true")
 
+    const lockBodyScroll = () => {
+        const scrollY = window.scrollY
+        document.body.dataset.lockScrollY = String(scrollY)
+        document.body.style.position = "fixed"
+        document.body.style.top = `-${scrollY}px`
+        document.body.style.left = "0"
+        document.body.style.right = "0"
+        document.body.style.width = "100%"
+    }
+
+    const unlockBodyScroll = () => {
+        if (!("lockScrollY" in document.body.dataset)) return
+        const locked = Number.parseFloat(document.body.dataset.lockScrollY || "0")
+        document.body.style.position = ""
+        document.body.style.top = ""
+        document.body.style.left = ""
+        document.body.style.right = ""
+        document.body.style.width = ""
+        delete document.body.dataset.lockScrollY
+        window.scrollTo({ top: Number.isFinite(locked) ? locked : 0, left: 0, behavior: "auto" })
+    }
+
     const openMenu = () => {
         setNavVisible(true)
         menu.classList.add("active")
@@ -62,6 +84,7 @@ export function initMenu() {
         menuToggle.setAttribute("aria-expanded", "true")
         nav.classList.add("menu-open")
         document.body.classList.add("menu-open")
+        lockBodyScroll()
     }
 
     const closeMenu = () => {
@@ -70,6 +93,7 @@ export function initMenu() {
         menuToggle.setAttribute("aria-expanded", "false")
         nav.classList.remove("menu-open")
         document.body.classList.remove("menu-open")
+        unlockBodyScroll()
     }
 
     const handleToggleClick = (event) => {

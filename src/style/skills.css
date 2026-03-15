@@ -7,11 +7,6 @@
     font-weight: normal;
 }
 
-.skills-body {
-    margin-top: var(--space-5);
-    font-size: var(--fs-section-body);
-}
-
 .skills-content {
     display: grid;
     grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
