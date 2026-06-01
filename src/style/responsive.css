@@ -55,8 +55,7 @@
     }
 
     .hero-header .name-info {
-        font-size: clamp(3.32rem, 14.4vw, 5.12rem);
-        white-space: normal;
+        font-size: clamp(2.25rem, 7.5vw, 5.5rem);
     }
 
     .hero-header .title-info {
@@ -565,7 +564,7 @@
     }
 
     .hero-header .name-info {
-        font-size: clamp(2.8rem, 14.4vw, 3.92rem);
+        font-size: clamp(3rem, 12.9vw, 3.92rem);
     }
 
     .hero-header .location-line {
@@ -758,10 +757,16 @@
     }
 }
 
-/* Extra-wide monitors: reduce container side padding */
+
 @media (min-width: 1600px) {
     :root {
-        --container-padding: clamp(0.75rem, 1.4vw, 1.5rem);
+        --container-padding: clamp(1rem, 0vw, 2rem);
+    }
+}
+
+@media (min-width: 2000px) {
+    :root {
+        --container-padding: clamp(3rem, 5vw, 6rem);
     }
 }
 
