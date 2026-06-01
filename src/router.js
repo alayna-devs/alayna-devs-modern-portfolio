@@ -3,7 +3,6 @@ import { initScrollToggleButton } from "./components/scrollToggleButton"
 import { initContactCardTilt } from "./sections/contacts"
 import { initEducationSection } from "./sections/education"
 import { initProjectsSection } from "./sections/projects"
-import { initHeroPhotoTilt } from "./sections/header"
 import { initSectionScrollReveal } from "./utils/scrollReveal"
 import { create404View, init404View } from "./views/404View"
 import { createAboutMeView } from "./views/aboutMeView"
@@ -62,7 +61,6 @@ export function router() {
         app.innerHTML = createHomeView()
         registerDisposer(initSectionScrollReveal())
         registerDisposer(initMenu())
-        registerDisposer(initHeroPhotoTilt())
         registerDisposer(initProjectsSection())
         registerDisposer(initEducationSection())
         registerDisposer(initContactCardTilt())

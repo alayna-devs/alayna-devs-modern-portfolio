@@ -10,5 +10,4 @@ export const courseraLogo = new URL("../assets/images/coursera-logo.png", import
 export const ctdLogo = new URL("../assets/images/ctd-logo.png", import.meta.url).href
 
 export const profilePhoto = new URL("../assets/images/temp-photo.jpg", import.meta.url).href
-export const heroPhoto = new URL("../assets/images/selfie-no-background.svg", import.meta.url).href
 export const projectPlaceholder = new URL("../assets/images/No Image.svg", import.meta.url).href

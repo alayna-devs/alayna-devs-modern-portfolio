@@ -55,13 +55,13 @@
     }
 
     .hero-header .name-info {
-        font-size: clamp(2rem, 14vw, 6rem);
+        font-size: clamp(3.32rem, 14.4vw, 5.12rem);
         white-space: normal;
     }
 
     .hero-header .title-info {
-        font-size: clamp(1.35rem, 6vw, 2.4rem);
-        margin-top: 1vw;
+        font-size: clamp(1.6rem, 6.6vw, 2.24rem);
+        margin-top: 0;
         white-space: normal;
     }
 
@@ -86,49 +86,30 @@
 
     .hero-header .bio-info {
         white-space: normal;
-        font-size: clamp(1rem, 3vw, 1.2rem);
-        margin-top: 0.2rem;
-        max-width: 60ch;
-    }
-
-    .hero-header .intro-photo {
-        width: 100%;
-    }
-
-    .hero-header .intro-div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
+        font-size: clamp(1.28rem, 3.84vw, 1.44rem);
+        margin-top: calc(var(--space-1) - var(--space-4));
+        max-width: min(100%, 51.84rem);
     }
 
     .hero-header .intro-info-div {
-        align-items: center;
-        text-align: center;
-        margin: 0;
-        width: 100%;
-        max-width: 56rem;
+        max-width: 100%;
+        gap: var(--space-4);
     }
 
     .hero-header .location-line {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
+        justify-content: flex-start;
+        text-align: left;
     }
 
     .hero-header .name-row {
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .hero-header .github-btn {
-        margin-top: var(--space-3);
-        align-self: center;
+        margin-top: var(--space-4);
+        align-self: flex-start;
     }
 
-    .hero-header .intro-photo-div {
-        justify-content: center;
-        width: 100%;
-    }
 
     .projects-grid {
         grid-template-columns: 1fr;
@@ -258,10 +239,10 @@
     }
 
     .hero-header .name-pronounce-btn {
-        width: clamp(1.7rem, 2.2vw, 2rem);
-        height: clamp(1.7rem, 2.2vw, 2rem);
-        font-size: clamp(0.95rem, 1.2vw, 1.1rem);
-        margin-top: 0.1rem;
+        width: clamp(2.88rem, 3.6vw, 3.44rem);
+        height: clamp(2.88rem, 3.6vw, 3.44rem);
+        font-size: clamp(1.6rem, 2.08vw, 1.92rem);
+        margin-top: 0.25rem;
     }
 }
 
@@ -284,7 +265,7 @@
 /* Tablet (768px and below) */
 @media (max-width: 768px) {
     .hero-header {
-        margin-top: 7rem;
+        margin-top: 10rem;
     }
 
     #projects,
@@ -317,12 +298,9 @@
     }
 
     .hero-header .github-btn {
-        margin-top: 3vh;
+        margin-top: var(--space-5);
     }
 
-    .hero-header .intro-photo {
-        width: min(100%, 34rem);
-    }
 
     .contact-profile {
         flex-direction: column;
@@ -587,42 +565,39 @@
     }
 
     .hero-header .name-info {
-        font-size: clamp(2.2rem, 12vw, 3rem);
+        font-size: clamp(2.8rem, 14.4vw, 3.92rem);
     }
 
     .hero-header .location-line {
-        font-size: 0.95rem;
+        font-size: 1.2rem;
     }
 
     .hero-header .name-pronounce-btn {
-        width: 1.55rem;
-        height: 1.55rem;
-        align-self: center;
-        font-size: 0.92rem;
-        margin-top: 0;
+        width: 3.12rem;
+        height: 3.12rem;
+        font-size: 1.68rem;
+        margin-top: 0.15rem;
+    }
+
+    .hero-header .intro-info-div {
+        gap: var(--space-3);
     }
 
     .hero-header .name-row {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        gap: 0.3rem;
-    }
-
-    .hero-header .name-pronounce-btn.icon-tooltip::after {
-        left: 50%;
-        transform: translate(-50%, 0.25rem);
-        white-space: normal;
-        width: max-content;
-        max-width: calc(100vw - 2rem);
-        text-align: center;
+        justify-content: flex-start;
+        gap: var(--space-2);
     }
 
     .hero-header .bio-info {
-        font-size: 1rem;
+        font-size: 1.28rem;
+        margin-top: calc(var(--space-1) - var(--space-3));
+        max-width: min(100%, 51.84rem);
     }
 
     .hero-header .title-info {
-        font-size: clamp(1.2rem, 7.2vw, 1.8rem);
+        font-size: clamp(1.44rem, 7.8vw, 1.88rem);
     }
 
     .projects-body,
@@ -817,8 +792,9 @@
 /* scale up for very large screens (TVs, big monitors) */
 @media (min-width: 2200px) {
     .container { max-width: 1800px; }
-    .hero-header .name-info { font-size: 8rem; }
-    .hero-header .title-info { font-size: 6em; }
+    .hero-header .name-info { font-size: 7.2rem; }
+    .hero-header .title-info { font-size: 2.72rem; }
+    .hero-header .bio-info { font-size: 1.68rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -833,8 +809,7 @@
         will-change: auto;
     }
 
-    .hero-header .intro-info-div,
-    .hero-header .intro-photo-div {
+    .hero-header .intro-info-div {
         opacity: 1;
         transform: none;
         animation: none;
