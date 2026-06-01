@@ -21,7 +21,7 @@ export function createContacts() {
 
                             <div>
                                 <h3>Alayna Taylor</h3>
-                                <p>Software Engineer | Full-Stack Web Developer</p>
+                                <p>Software Developer | Full-Stack Developer</p>
                             </div>
                         </div>
 
